@@ -1,0 +1,111 @@
+<body class="loginpg">
+  
+  <mat-expansion-panel class="login-box" expanded="true" hideToggle="true" disabled="true"
+    style="box-shadow: 0px 0px 7px rgba(234, 232, 232, 0.94);">
+    <mat-expansion-panel-header style="padding-bottom: 10px;">
+      <mat-panel-title style="font-weight: 600;color: #3f51b5; font-size: 23px;padding-left: 40%;">
+        Log In
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <!-- <mat-expansion-panel-header style="padding-bottom: 10px;">
+      <mat-panel-title style="font-weight: 600;color: #3f51b5; font-size: 23px;padding-left: 40%;">
+        Log In
+      </mat-panel-title>
+    </mat-expansion-panel-header> -->
+    <form [formGroup]="signInForm" (keyup.enter)="submit()">
+      <div class="field">
+        <mat-label style="color: white;">Select User Type</mat-label>
+        <mat-form-field class="labelFont" >
+          <mat-select style="background-color: white; padding: 8px; border-radius: 15px;" [(value)]="selected" formControlName="user_type" required>
+            <mat-option>None</mat-option>
+            <mat-option value="Developer">Approver</mat-option>
+            <mat-option value="Tester">Checker</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="field">
+        <mat-label style="color: white;">Enter user id</mat-label>
+        <mat-form-field class="labelFont" >
+          <input style="background-color: white; padding: 8px; border-radius: 15px;" matInput type="text" name="user_id" formControlName="user_id" placeholder="Enter user id"
+            autocomplete="off" required>
+        </mat-form-field>
+      </div>
+      <div class="field">
+        <mat-label style="color: white;">Enter Password</mat-label>
+        <mat-form-field class="labelFont">
+          <input style="background-color: white; padding: 8px;  border-radius: 15px;" id="txtPassword" matInput appBlockCopyPaste type="text" formControlName="password" name="password"
+            placeholder="Enter Password" autocomplete="off" required>
+        </mat-form-field>
+      </div>
+      
+    </form>
+    <div *ngIf="account_locked" style="margin-bottom: 20px; color: red;">
+      {{errorMessage}}
+    </div>
+    <div class="button">
+      <!--
+    <button style="margin-right: 10px;"   (click)="resetPassword()" mat-raised-button color="primary">Change Password
+    </button>
+    -->
+      <button  (click)="submit()" [disabled]="!canSubmit() || account_locked" mat-raised-button
+        color="primary" style="font-size: 18px;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Submit
+      </button>
+    </div>
+    <!-- <mat-action-row>
+    <div>
+      <button mat-button color="primary" (click)="openDialogWithTemplateRef(forgotPassword)">Forgot Password?</button>
+    </div>
+  </mat-action-row> -->
+  </mat-expansion-panel>
+
+  <div *ngIf="displayMessage" class="my-overlay" style="padding: 30%; padding-top: 50px;padding-bottom: 0;">
+    <div class="customAlert" [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'" style="
+              height: 190px;
+              border: groove;
+              box-shadow: 5px 10px #888888;width: 500px;">
+      <div class="messageheader" style="padding: 30px;font-weight: 500;font-size: 25px;padding-bottom: 15px;
+                                           background: #3f51b5;color: white;
+                                           padding-top: 10px;margin-bottom: 15px">
+        <!-- Information Message :  -->
+        {{ messageType }}
+      </div>
+      <div class="messagebody" style="text-align: center;font-weight: 500;font-size: 20px;">
+        <!-- No Data Available -->
+        {{ messageDetails }}
+      </div>
+
+      <div style="text-align: right;margin-top: 30px;padding-right: 30px;">
+        <button style="width: 20%;height: 30px;margin-right: 10px;" (click)="showAlert('OK')">OK</button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div *ngIf="openConfirmationBox" class="my-overlay" style="padding: 30%; padding-top: 50px;padding-bottom: 0;">
+    <div class="customAlert" [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'" style="
+              height: 190px;
+              border: groove;              
+              box-shadow: 5px 10px #888888;width: 500px;">
+      <div class="messagebody"
+        style="font-weight: 500;font-size:20px;padding-left: 20px; padding-bottom: 10px;padding-top:50px;padding-right: 20px;">
+        {{messagePopup}}
+      </div>
+
+      <div style="text-align: right;margin-top: 30px;padding-right: 30px;">
+        <button style="width: 20%;height: 30px;margin-right: 10px;" (click)="showMessage('OK')">OK</button>
+        <button style="width: 20%;height: 30px;margin-right: 10px;" (click)="showMessage('CANCEL')">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-overlay" *ngIf="showOverlay" style="display: flex; flex-direction: column;">
+    <i class="fa fa-spinner fa-spin" aria-hidden="true" style="color: white;"></i>
+    <span style="color:white; font-size: 30px;">Please wait...</span>
+  </div>
+</body>

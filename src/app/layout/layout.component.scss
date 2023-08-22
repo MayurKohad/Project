@@ -1,0 +1,87 @@
+.spacer {
+  flex: 1 auto;
+}
+
+// .container {
+//   /*padding: 20px;*/
+// }
+// background: linear-gradient(to right,#f68bd6, #a753f6);
+
+.mat-toolbar{
+  background: linear-gradient(to right,#f68bd6, #a753f6);
+
+}
+.header-title {
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.header-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 2fr;
+  cursor: pointer;
+  // position: fixed;
+  width: 100%;
+  top:0px;
+  z-index: 5;
+}
+
+.sub-header-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr
+}
+
+.tp-container  {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  // background: linear-gradient(to right,#e748b7, #9f3efa);
+background-color: #f2f2f2;
+}
+.main{
+   background-image: url('../../assets/image/sbi-life-logo.png');
+
+  // background-size: 100% 120%;
+ 
+}
+
+
+.tp-section {
+  padding: 15px;
+  width: 240px;
+  max-height: 75vh;
+  overflow: auto;
+}
+.list-head{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.menu-parent-container{
+  height:100%;
+  background: #f2f2f2;
+}
+.mat-expansion-panel-spacing{
+  margin:0 !important;
+}
+
+.padding_10px{
+padding: 10px;
+}
+.logobg{
+  background-color: #a753f6;
+}
+img{
+  
+
+    height: 20%;
+    margin-top: 20%;
+    width: 48%;
+    margin-left: 25%;
+}

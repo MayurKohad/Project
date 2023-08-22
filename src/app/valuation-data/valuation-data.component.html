@@ -1,0 +1,118 @@
+
+<div class="my-overlay1" *ngIf="showOverlay" style="display: flex; flex-direction: column;">
+    <i class="fa fa-spinner fa-spin" aria-hidden="true" style="color: white;"></i>
+    <span style="color:white; font-size: 30px;">Please wait...</span>
+</div>
+
+
+<div class="box-container">
+    <div>
+        <!-- <h2 class="mat-h2">Dashboard</h2> -->
+        <div class="redirectPage">
+            <button mat-raised-button color="primary" [routerLink]="['/dashboard-page/']">
+                Redirect to dashboard page
+            </button>
+        </div>
+
+        <h5 style="padding: 20px;">
+            Selected Module :
+            <span style="color: blue;"> {{actualModule}} </span>
+        </h5>
+
+        <div *ngIf="dropdown" style="margin-left: 35%;">
+        
+                <label><b>TABLE NAME:</b></label>
+               
+                <input type="text" [(ngModel)]="tablename" style="margin-left:20px" required>
+            </div>
+            <div class="box-container" style="border: solid 1px #212529;width: 100%;">
+            <div style="display: flex; justify-content: center;">
+                <!-- <div style="margin: 12px;font-weight: 500;">Enter date range :</div> -->
+                <div style="margin: 10px;" >
+                    
+                        <mat-label>Current_month &nbsp; </mat-label>
+                        <input type="text" [(ngModel)]="table1">
+                </div>
+                <div style="margin: 10px;">
+                        <mat-label>Last_month &nbsp;</mat-label>
+                        <input type="text" [(ngModel)]="table2">
+                </div>
+                <div style="margin-top: 5px; margin-left: 20px;">
+                    <button mat-raised-button color="primary" (click)="submitTableDate()">
+                        Process Input                                       
+                    </button>
+                </div>
+            </div>
+        </div>
+            
+           
+        <!-- <div *ngIf="!export" style="text-align: center; margin-top: 25px;">
+            <button mat-raised-button matTooltip="Process Data" color="primary" (click)="processData()">
+                Process Input
+            </button>
+        </div> -->
+
+        <!-- <div *ngIf="export" style="text-align: center; margin-top: 20px; ">
+            <button mat-raised-button matTooltip="Export data to Excel" color="primary" (click)="exportAsXLSX1()">
+                Export To Excel
+            </button>
+        </div> -->
+
+        <div *ngIf="export" style="text-align: center; margin-top: 20px; ">
+            <button mat-raised-button matTooltip="Export data to CSV" color="primary" (click)="exportAsCSV()">
+                Export To CSV
+            </button>
+        </div>
+
+
+    </div>
+    
+    <div style="display: flex;flex-direction: row;margin: 20px;">
+        <div *ngIf="openConfirmationBox" class="my-overlay"
+            style="padding: 30%; padding-top: 50px;padding-bottom: 0;position: absolute;z-index: 99999999;">
+            <div class="customAlert" [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'" style="
+                    height: 190px;
+                    border: groove;
+                    margin-top: -170px;
+                    box-shadow: 5px 10px #888888;width: 500px;">
+                <div class="messagebody"
+                    style="font-weight: 500;font-size:20px;padding-left: 20px; padding-bottom: 10px;padding-top:50px;padding-right: 20px;">
+                    {{messagePopup}}
+                </div>
+
+                <div style="text-align: right;margin-top: 30px;padding-right: 30px;">
+                    <button style="width: 20%;height: 30px;margin-right: 10px;" (click)="showAlert('OK')">OK</button>
+                </div>
+
+            </div>
+        </div>
+        
+
+
+        <div *ngIf="displayMessage" style="padding: 30%; padding-top: 50px;padding-bottom: 0;position: absolute; margin-top: -170px;">
+            <div class="customAlert" [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'" style="
+                    height: 190px;
+                    border: groove;
+                    box-shadow: 5px 10px #888888;">
+                <div class="messageheader" style="padding: 30px;font-weight: 500;font-size: 25px;padding-bottom: 15px;
+                                                background: #3f51b5;color: white;
+                                                padding-top: 10px;margin-bottom: 15px">
+                    <!-- Information Message :   -->
+                    {{ messageType }}
+                </div>
+                <div class="messagebody" style="font-weight: 500;padding-left: 30px; padding-bottom: 10px;">
+                    <!-- server [ error_code : 1 ]  -->
+                    {{ message }}
+                </div>
+                <div class="messagebody" style="text-align: center;font-weight: 500;font-size: 20px;">
+                    <!-- No Data Available -->
+                    {{ messageDetails }}
+                </div>
+
+                <div style="text-align: right;margin-top: 30px;padding-right: 30px;">
+                    <button style="width: 20%;height: 30px;" (click)="showMessage()">OK</button>
+                </div>
+
+            </div>
+        </div>
+    </div>

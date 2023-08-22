@@ -1,0 +1,74 @@
+.redirectPage {
+    text-align: end;
+    margin-right: 30px;
+    margin-top: 5px;
+   
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  .row{
+    padding-top: 10%;
+    margin-left: 50px;
+    align-items: center;
+    padding-bottom: 21%;
+  }
+  .card{
+    margin-left: 125px;
+    height: 150px;
+    width: 170px;
+    box-shadow: rgba(0,0,0,0.5) 0px 5px 15px;
+    border-radius: 15px;
+    background-color: rgb(213, 182, 242);
+    transition: .1s transform cubic-bezier(.155,1.105,.295,1.12),.1s box-shadow,.1s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    cursor: pointer;
+    border-width: 2px;
+    border-color: rgb(159, 125, 190);;
+  }
+   p{
+    font-size:x-large;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 46px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+  }
+  .card:hover{
+    transform: scale(1.2);
+ box-shadow: 0 10px 20px rgba(0,0,0,.5), 0 4px 8px rgba(0,0,0,.4);
+ 
+}
+.backEle {
+  display: inline-block;
+  margin:11px 15px 0px 0px;
+  position: fixed;
+  right: 9px;
+  width: 50px;
+}
+
+.backBtn {
+  padding: 5px 18px;
+  border: none;
+  background: #3f51b5;
+  border-radius: 6px;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, 
+      rgba(0, 0, 0, 0.12) 0px -12px 30px,
+      rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, 
+      rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+

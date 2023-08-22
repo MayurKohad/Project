@@ -1,0 +1,89 @@
+
+
+{
+  "response_code": 1,
+  "response_message": "Code executed successfully",
+  "response_text":[{
+      
+        "DISCO CHARGES 1M":{
+        "REPORT_RUN_DATE": "0",
+        "EXTRACTION_DATE": "HHN",
+        "PASS_FTD": "0",
+        "FAIL_FTD": "HGSH",
+        "QC_WIP": "000DDF",
+        "REPORT_EXTRACTION_STATUS": "Complete",
+        "AGEING_0_5_DAYS": "0",
+        "AGEING_5_30_DAYS": "AYTRT",
+        "AGEING_30_DAYS":"6666"
+        },
+        
+
+       "DISCO CHARGES ULIP":  {
+        "REPORT_RUN_DATE": "31",
+        "EXTRACTION_DATE": "29",
+        "PASS_FTD": "2",
+        "FAIL_FTD": "0",
+        "QC_WIP": "31",
+        "REPORT_EXTRACTION_STATUS": "Complete",
+        "AGEING_0_5_DAYS": "2",
+        "AGEING_5_30_DAYS": "0",
+        "AGEING_30_DAYS":"6666"
+      },
+
+       "ALLOCATION CHARGES": {
+        "REPORT_RUN_DATE": "0",
+        "EXTRACTION_DATE": "0",
+        "PASS_FTD": "0",
+        "FAIL_FTD": "7877",
+        "QC_WIP": "0",
+        "REPORT_EXTRACTION_STATUS": "Complete",
+        "AGEING_0_5_DAYS": "7788",
+        "AGEING_5_30_DAYS": "0",
+        "AGEING_30_DAYS":"6666"
+      },
+       "MORTALITY UNITIZATION":{
+        "REPORT_RUN_DATE": "117",
+        "EXTRACTION_DATE": "112",
+        "PASS_FTD": "5",
+        "FAIL_FTD": "0",
+        "QC_WIP": "117",
+        "REPORT_EXTRACTION_STATUS": "Complete",
+        "AGEING_0_5_DAYS": "5",
+        "AGEING_5_30_DAYS": "0",
+        "AGEING_30_DAYS":"6666"
+      },
+    
+       "MORTALITY SKIPPED CASES":  {
+        "REPORT_RUN_DATE": "877",
+        "EXTRACTION_DATE": "0",
+        "PASS_FTD": "444",
+        "FAIL_FTD": "0",
+        "QC_WIP": "33",
+        "REPORT_EXTRACTION_STATUS": "Complete",
+        "AGEING_0_5_DAYS": "0",
+        "AGEING_5_30_DAYS": "0",
+        "AGEING_30_DAYS":"6666"
+      },
+     
+       "ADMIN SKIPPED CASES" :{
+        "REPORT_RUN_DATE": "999",
+        "EXTRACTION_DATE": "0",
+        "PASS_FTD": "066",
+        "FAIL_FTD": "0",
+        "QC_WIP": "JJH",
+        "REPORT_EXTRACTION_STATUS": "Complete",
+        "AGEING_0_5_DAYS": "0",
+        "AGEING_5_30_DAYS": "88AS",
+        "AGEING_30_DAYS":"6666"
+      }
+    
+    }
+  ]
+ 
+}
+
+
+    
+
+
+  

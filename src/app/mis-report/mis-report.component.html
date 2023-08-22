@@ -1,0 +1,65 @@
+
+<ng-container *ngIf="false">
+  <div class="box-container" style="margin-top: 20px;text-align: center;display: flex;justify-content: space-around;">
+    <ng-container>
+    <button mat-raised-button color="primary" type="button"  matTooltip="By Date" (click)="showHidePicker()">By Date</button>
+    </ng-container>
+    
+</div>
+
+<div class="section" style="margin-top: 12px;text-align: center;" *ngIf="showHide">
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker"  [max]="today" [(ngModel)]="startDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div>
+        <button mat-raised-button color="primary" type="button"  matTooltip="By Date" (click)="getList()">Submit</button>
+        <div *ngIf="gs?.loader" style="position: absolute;top: 50%;left: 50%;transform: translate(-12px, -86px);">
+          <mat-spinner [diameter]="35" color="warn"></mat-spinner>
+        </div>
+    </div>
+
+  </div>
+</ng-container>
+
+  <div class="box-container">
+    <div class="grid-2">
+        <h2 class="mat-h2">MIS Report</h2>
+        <div class="redirectPage" style="text-align: end;">                
+            <a [routerLink]="['/dashboard-page/']">
+                Redirect to process page 
+            </a>
+        </div>
+    </div>
+   
+    <div>
+        <div class="box-container"> 
+            <div class="grid-3">
+               
+                <ng-container>
+                  <button mat-raised-button color="primary" type="button"  matTooltip="By Date" (click)="showHidePicker()">By Date</button>
+                  <!-- <button mat-raised-button color="primary" type="button"  matTooltip="Existing Product" (click)="gs.navigateToUrl('existing-product')">Existing Product</button>
+                  <button mat-raised-button color="primary" type="button"  matTooltip="MIS" (click)="gs.navigateToUrl('product-mis')">MIS</button> -->
+                  </ng-container>
+                <div class="section" style="margin-top: 12px;text-align: center;" *ngIf="showHide">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Date</mat-label>
+                    <input matInput [matDatepicker]="picker"  [max]="today" [(ngModel)]="startDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                  <div>
+                      <button mat-raised-button color="primary" type="button"  matTooltip="By Date" (click)="getList()">Submit</button>
+                      <div *ngIf="gs?.loader" style="position: absolute;top: 50%;left: 50%;transform: translate(-12px, -86px);">
+                        <mat-spinner [diameter]="35" color="warn"></mat-spinner>
+                      </div>
+                  </div>
+              
+                </div>
+            </div>
+       
+        </div>
+    </div>
+</div>

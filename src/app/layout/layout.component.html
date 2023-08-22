@@ -1,0 +1,56 @@
+
+<mat-drawer-container class="tp-container">
+  <mat-toolbar >
+    <mat-toolbar-row>
+      <div class="header-grid">
+        <div class="sub-header-grid">
+          <div>
+            <span class="header-title" *ngIf="!router.url.includes('product-dashboard') && !router.url.includes('new-product') && !router.url.includes('existing-product') && !router.url.includes('product-mis')">
+              <!--SBI Payout Audit Platform-->
+              SBILife Data Quality Platform
+            </span>
+            <span class="header-title" *ngIf="router.url.includes('product-dashboard') || router.url.includes('new-product') || router.url.includes('existing-product') || router.url.includes('product-mis')">
+              <!--SBI Payout Audit Platform-->
+              Product Calender
+            </span>
+          </div>
+          <div style="text-align: right">
+            <button mat-button [matMenuTriggerFor]="menu" class="right-align">
+              <!-- <span>Admin</span> -->
+              <span *ngIf="!router.url.includes('product-dashboard') && !router.url.includes('new-product') && !router.url.includes('existing-product') && !router.url.includes('product-mis')">{{userName}}</span>
+              <span *ngIf="router.url.includes('product-dashboard') || router.url.includes('new-product') || router.url.includes('existing-product') || router.url.includes('product-mis')">Logout</span>
+             
+              <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" aligns="end">
+              <button mat-menu-item (click)="gotoPage('login')">
+                <mat-icon>remove_circle</mat-icon>
+                <span>Logout</span>
+      
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </div>
+    
+    </mat-toolbar-row>
+  <!-- <mat-toolbar-row style="height: 30px;" >
+    <div style="width: 100%;text-align: end;">
+      <button mat-button class="right-align" (click)="gotoPage('claim-dashboard')" *ngIf="!router.url.includes('claim-dashboard') && !router.url.includes('product-dashboard') && !router.url.includes('new-product') && !router.url.includes('existing-product') && !router.url.includes('product-mis')">
+        <span>Claim Dashboard</span>
+      </button>
+      <button mat-button class="right-align" (click)="gotoPage('mis-report')" *ngIf="!router.url.includes('product-dashboard') && !router.url.includes('new-product') && !router.url.includes('existing-product') && !router.url.includes('product-mis')">
+        <span>MIS</span>
+      </button>
+    </div>
+  </mat-toolbar-row> -->
+  </mat-toolbar>
+  <div class="logobg">
+  <div [ngClass]="{padding_10px: router.url.includes('product-dashboard') || router.url.includes('new-product') || router.url.includes('existing-product') || router.url.includes('product-mis')}">
+    <router-outlet></router-outlet>
+    <img style="position: fixed; " *ngIf="router.url.includes('dashboard-page') " src="../../assets/image/sbi-life-logo.png">
+  </div>
+  </div>
+ 
+  
+</mat-drawer-container>

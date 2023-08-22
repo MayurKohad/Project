@@ -1,0 +1,219 @@
+<div style="background-color: white ;">
+
+    <div *ngIf="displayMessage">
+        <div style="width: -webkit-fill-available; position: absolute; z-index: 99999999999999999;">
+            <div style="padding: 30%; padding-top: 50px;padding-bottom: 0;">
+                <div class="customAlert" [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'" style="
+                      height: 230px;
+                      border: groove;
+                      box-shadow: 5px 10px #888888;">
+                    <div class="messageheader" style="padding: 30px;font-weight: 500;font-size: 25px;padding-bottom: 15px;
+                                                  background: #3f51b5;color: white;
+                                                  padding-top: 10px;margin-bottom: 15px">
+                        {{ messageType }}
+                    </div>
+                    <div class="messagebody" style="font-weight: 500;padding-left: 30px; padding-bottom: 10px;">
+                        {{ message }}
+                    </div>
+                    <div class="messagebody" style="text-align: center;font-weight: 500;font-size: 20px;">
+                        {{ messageDetails }}
+                    </div>
+                    <div style="text-align: right;margin-top: 30px;padding-right: 30px;">
+                        <button style="width: 20%;height: 30px;" (click)="showMessage()">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="backEle"><button class="backBtn" (click)="backPage()"><i
+        class="fa-solid fa-arrow-left"></i></button></div>
+
+    <div class="card1  mb-3" style="max-width: 50rem;">
+        <div class="card-header">
+            <h3>UPDATE DEFECT</h3>
+        </div>
+        <div class="card-body" style="font-family: emoji;">
+            <form  [formGroup]="updateForm" (ngSubmit)="update()" class="form">
+                <div class="filed1">
+                    
+                    <div class="form-group" >
+                        <label>MONTH:<span style="color: red;">*</span></label>
+                        <input type="text"  class="form-control" name="MONTH" style="margin-left: 64%;"
+                        formControlName="MONTH"  >
+                    </div>
+                    <div class="form-group" style="margin-left: 21%;" >
+                        <label>VAL,DQ,IRDA:<span style="color: red;">*</span></label>
+                        <select name="VAL_DQ_IRDA"   style="margin-left: 34%;
+                        padding-left: 29px;" formControlName="VAL_DQ_IRDA" 
+                            >
+                            <option>DQ</option>
+                            <option>VALUATION</option>
+                            <option>IRDA</option>
+                            <option>OTHERS</option>
+                        </select>
+                    </div>
+                </div><br>
+                <div class="filed2">
+                    <div class="form-group" >
+                        <label>WHIZIBLE ID:<span style="color: red;">*</span> </label>
+                        <input required type="text"  class="form-control" name="WHIZIBLE_ID"style="margin-left:94px"
+                        formControlName="WHIZIBLE_ID"
+                           >
+                    </div>
+                    <div class="form-group" style="margin-left: 31px;">
+                        <label>DEPT RESPOSIBLE:<span style="color: red;">*</span></label>
+                        <select name="DEPT_RESPOSIBLE"    style="margin-left: 47px;"  formControlName="DEPT_RESPOSIBLE">
+                            <option>PS/LB</option>
+                            <option>IT</option>
+                            <option>CLAIMS</option>
+                            <option>RENEWALS</option>
+                            <option>NB</option>
+                            <option>OTHERS</option>
+                        </select>
+                    </div>
+
+                </div><br>
+                <div class="filed3">
+                    <div class="form-group">
+                        <label>CATEGORY:<span style="color: red;">*</span> </label>
+                        <input required type="text"  class="form-control" name="CATEGORY"  style="margin-left: 112px;"
+                        formControlName="CATEGORY"
+                            >
+                    </div>
+                    <div class="form-group" style="margin-left: 32px;">
+                        <label>SYSTEM:<span style="color: red;">*</span></label>
+                        <select name="SYSTEM"    style="margin-left: 119px;" formControlName="SYSTEM"
+                          >
+                            <option>INGENIUM </option>
+                            <option>INDIGO </option>
+                            <option>OTHERS </option>
+                        </select>
+                    </div>
+                </div><br>
+                <div class="filed4">
+                    <div class="form-group" >
+                        <label>ASPECT:<span style="color: red;">*</span></label>
+                        <input required type="text"  class="form-control" name="ASPECT" style="margin-left: 136px;" formControlName="ASPECT"
+                            >
+                    </div>
+                    <div class="form-group" style="margin-left: 28px; ">
+                        <label>ULIP/NON ULIP/GRPS/VIP:<span style="color: red;">*</span></label>
+                        <select name="ULIP_NONULIP_GRPS_VIP"  formControlName="ULIP_NONULIP_GRPS_VIP"
+                             >
+                            <option>ULIP</option>
+                            <option>NON-ULIP</option>
+                            <option>VIP</option>
+                            <option>GROUPS</option>
+                            <option>OTHERS</option>
+                        </select>
+                    </div>
+                </div><br>
+                <div class="filed5">
+                    <div class="form-group" >
+                        <label>PRODUCT ID COVERED:<span style="color: red;">*</span> </label>
+                        <input required type="text"  class="form-control" style="margin-left: 17px;"
+                            name="PRODUCT_ID_COVERED"  formControlName="PRODUCT_ID_COVERED"
+                            >
+                    </div>
+                    <div class="form-group" style="margin-left: 34px;">
+                        <label>STATUS OF WHIZIBLE:<span style="color: red;">*</span></label>
+                        <select name="CURRENT_STATUS_OF_WHIZIBLE_ID"   style="margin-left: 23px;" formControlName="CURRENT_STATUS_OF_WHIZIBLE_ID"
+                          >
+                            <option>OPEN</option>
+                            <option>CLOSE</option>
+                            <option>WIP</option>
+                        </select>
+                    </div>
+
+                </div><br>
+                <div class="filed6">
+                    <div class="form-group" >
+                        <label>ISSUES IN DETAIL:<span style="color: red;">*</span> </label>
+                        <input type="text"  class="form-control" name="ISSUES_IN_DETAIL" style="margin-left: 58px;" formControlName="ISSUES_IN_DETAIL"
+                            >
+                    </div>
+                    <div class="form-group" style="margin-left: 31px;">
+                        <label>IMPACTED POLICIES:<span style="color: red;">*</span> </label>
+                        <input required type="number"  class="form-control" style="margin-left: 34px;"
+                            name="IMPACTED_POLICIES" formControlName="IMPACTED_POLICIES" >
+                    </div>
+
+                </div><br>
+                <div class="filed7">
+                    <div class="form-group" >
+                        <label>SAMPLE POL/CUST ID:<span style="color: red;">*</span></label>
+                        <input required type="text"  class="form-control" style="margin-left: 31px;"
+                            name="SAMPLE_POL_CUST_ID" formControlName="SAMPLE_POL_CUST_ID" >
+                    </div>
+                    <div class="form-group" style="margin-left: 31px;">
+                        <label>AMOUNT IMPACTED:<span style="color: red;">*</span> </label>
+                        <input required type="number"  class="form-control" style="margin-left: 32px;"
+                            name="AMOUNT_IMPACTED" formControlName="AMOUNT_IMPACTED">
+                    </div>
+
+                </div><br>
+                <div class="filed8">
+                    <div class="form-group" >
+                        <label>RESOURCE:<span style="color: red;">*</span></label>
+                        <input required type="text"  class="form-control" name="RESOURCE" style="margin-left: 111px;" formControlName="RESOURCE"
+                            >
+                    </div>
+                    <div class="form-group" style="margin-left: 32px;">
+                        <label>DOR TO OPS/IT:<span style="color: red;">*</span> </label>
+                        <input required type="date"  class="form-control" style="margin-left: 74px;"
+                            name="DOR_TO_OPS_IT" formControlName="DOR_TO_OPS_IT" >
+                    </div>
+
+                </div><br>
+                <div class="filed9">
+                    <div class="form-group" >
+                        <label>REMARKS:<span style="color: red;">*</span> </label>
+                        <input required type="text"  class="form-control" name="REMARKS" style=" margin-left: 118px;" formControlName="REMARKS"
+                            >
+                    </div>
+                    <div class="form-group" style="margin-left: 34px;">
+                        <label>FY:<span style="color: red;">*</span></label>
+                        <input required type="text"  class="form-control" name="FY" style="margin-left: 165px;" formControlName="FY"
+                            >
+                    </div>
+
+                </div><br>
+
+                <div class="filed10">
+                    <div class="form-group" >
+                        <label>REASON FOR CLOSING :<span style="color: red;">*</span> </label>
+                        <input required type="text"  class="form-control" name="REASON_FOR_CLOSING" style=" margin-left: 20px;" formControlName="REASON_FOR_CLOSING"
+                            >
+                    </div>
+                    <div class="form-group" style="margin-left: 34px;">
+                        <label>DATE OF CLOSURE:<span style="color: red;">*</span></label>
+                        <input required type="date"  class="form-control" name="DATE_CLOSURE" style="margin-left: 42px;" formControlName="DATE_CLOSURE"
+                            >
+                    </div>
+
+                </div><br>
+
+               
+
+                <div class="filed9">
+                <div class="form-group">
+                    <label>SEVERITY:<span style="color: red;">*</span></label>
+                    <select name="SEVERITY" style="height: 40px; margin-left: 120px;" formControlName="SEVERITY">
+                        <option>Major</option>
+                        <option>Minor</option>
+                      
+                    </select>
+                </div>
+                
+                <div class="d-grid gap-2 ">
+                    <input type="submit" value="submit" class="btn btn-primary form-control" style="margin-left: 233px;">
+                </div>
+            </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,181 @@
+<div class="box-container">
+    <div class="grid-2">
+        <h2 class="mat-h2">Report Tracker</h2>
+        <div class="redirectPage" style="text-align: end;">
+            <button mat-raised-button color="primary" [routerLink]="['/dashboard-page/']">
+                Redirect to dashboard page
+            </button> 
+        </div>
+    </div>
+
+
+
+    <div *ngIf="displayMessage">
+        <div style="width: -webkit-fill-available; position: absolute; z-index: 99999999999999999;">
+            <div style="padding: 30%; padding-top: 50px;padding-bottom: 0;">
+                <div class="customAlert" [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'" style="
+                      height: 230px;
+                      border: groove;
+                      box-shadow: 5px 10px #888888;">
+                    <div class="messageheader" style="padding: 30px;font-weight: 500;font-size: 25px;padding-bottom: 15px;
+                                                  background: #3f51b5;color: white;
+                                                  padding-top: 10px;margin-bottom: 15px">
+                        {{ messageType }}
+                    </div>
+                    <div class="messagebody" style="font-weight: 500;padding-left: 30px; padding-bottom: 10px;">
+                        {{ message }}
+                    </div>
+                    <div class="messagebody" style="text-align: center;font-weight: 500;font-size: 20px;">
+                        {{ messageDetails }}
+                    </div>
+                    <div style="text-align: right;margin-top: 30px;padding-right: 30px;">
+                        <button style="width: 20%;height: 30px;" (click)="showMessage()">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="border: 1px solid currentColor;margin-top: 20px;">
+        <div class="misheader" style="display: flex; flex-direction: row;">
+            <div style="width: 90%;">
+                Report Tracker {{this.misReportDate}}
+            </div>
+            <!-- <div style="text-align:end" >
+                <button mat-raised-button matTooltip="Export policy data to excel sheet" color="primary"
+                    (click)="exportAsXLSX()">
+                    Export To Excel
+                </button>
+            </div> -->
+        </div>
+        <!-- <div *ngIf="!noData"> -->
+
+        <table  id="ExampleNormalTable" class="table table-bordered  table-striped">
+            <thead>
+                <tr>
+                    <th style="background-color: #bee5f5;">
+                        REPORT NAME
+                    </th>
+                    <th style="background-color: #bee5f5;">
+                        Report Run Date
+                    </th>
+                    <th style="background-color: #bee5f5;">
+                        Extraction Date
+                    </th>
+                    <th style="background-color: #bee5f5;">
+                        Pass FTD
+                    </th>
+                    <th style="background-color: #bee5f5;">
+                        Fail FTD
+                    </th>
+                    <th style="background-color: #bee5f5;">
+                        QC WIP
+                    </th>
+                    <th style="background-color: #bee5f5;">
+                        Report Extraction Status
+                    </th>
+                    <th style="background-color: #acedc5;">
+                        Ageing 0-5 days
+                    </th>
+                    <th style="background-color: #eeee91;" >
+                        Ageing 6-30 days
+                    </th>
+                    <th style="background-color: #eec791;">
+                        Ageing > 30 days
+                    </th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let element of Array2">
+
+                <tr>
+                    <td style="background-color: #ebe0c2;">
+                        <b>{{element.NAME}}</b>
+                    </td>
+                    <td style="background-color: #efe7d0;">
+                        <div *ngIf="element.data.REPORT_EXTRACTION_STATUS == 'Complete'; else data1">
+                            {{element.data.REPORT_RUN_DATE}}
+                        </div>
+                        <ng-template #data1>
+                            0
+                        </ng-template>
+                    </td>
+                    <td style="background-color: #efe7d0;">
+                        <div *ngIf="element.data.REPORT_EXTRACTION_STATUS == 'Complete'; else data2">
+                            {{element.data.EXTRACTION_DATE}}
+                        </div>
+                        <ng-template #data2>
+                            0
+                        </ng-template>
+                    </td>
+                    <td style="background-color: #efe7d0;">
+                        <div *ngIf="element.data.REPORT_EXTRACTION_STATUS == 'Complete'; else data3">
+                            {{element.data.PASS_FTD}}
+                        </div>
+                        <ng-template #data3>
+                            0
+                        </ng-template>
+                    </td>
+                    <td style="background-color: #efe7d0;">
+                        <div *ngIf="element.data.REPORT_EXTRACTION_STATUS == 'Complete'; else data4">
+                            {{element.data.FAIL_FTD}}
+                        </div>
+                        <ng-template #data4>
+                            0
+                        </ng-template>
+                    </td>
+                    <td style="background-color: #efe7d0;">
+                        <div *ngIf="element.data.REPORT_EXTRACTION_STATUS == 'Complete'; else data5">
+                            {{element.data.QC_WIP}}
+                        </div>
+                        <ng-template #data5>
+                            0
+                        </ng-template>
+                    </td>
+                    <td style="background-color: #efe7d0;">
+                        <div *ngIf="element.data.REPORT_EXTRACTION_STATUS == 'Complete'; else data6">
+                            {{element.data.REPORT_EXTRACTION_STATUS}}
+                        </div>
+                        <ng-template #data6>
+                            NOT RUN
+                        </ng-template>
+                    </td>
+                    <td style="background-color: #acedc5;">
+                        <div *ngIf="element.data.REPORT_EXTRACTION_STATUS == 'Complete'; else data7">
+                            {{element.data.AGEING_0_5_DAYS}}
+                        </div>
+                        <ng-template #data7>
+                            0
+                        </ng-template>
+                    </td>
+                    <td style="background-color: #eeee91;">
+                        <div *ngIf="element.data.REPORT_EXTRACTION_STATUS == 'Complete'; else data8">
+                            {{element.data.AGEING_6_30_DAYS}}
+                        </div>
+                        <ng-template #data8>
+                            0
+                        </ng-template>
+                    </td>
+                    <td style="background-color: #eec791;">
+                        <div *ngIf="element.data.REPORT_EXTRACTION_STATUS == 'Complete'; else data9">
+                            {{element.data.AGEING_30_DAYS}}
+                        </div>
+                        <ng-template #data9>
+                            0
+                        </ng-template>
+                    </td>
+                    
+                </tr>
+
+            </tbody>
+        </table>
+
+
+    </div>
+    <!-- </div> -->
+
+</div>
+
+<div class="my-overlay1" *ngIf="showOverlay" style="display: flex; flex-direction: column;">
+    <i class="fa fa-spinner fa-spin" aria-hidden="true" style="color: white;"></i>
+    <span style="color:white; font-size: 30px;">Please wait...</span>
+</div>

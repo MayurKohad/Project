@@ -1,0 +1,94 @@
+.defect {
+    margin-left: 41%;
+    padding: 9px 138px 4px 138px;
+}
+
+.maindashboard {
+    margin-left: 3%;
+    padding: 9px 138px 4px 138px;
+
+}
+
+
+//card css
+
+@import url('https://fonts.googleapis.com/css?family=Poppins|Ubuntu&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.Searchtab{
+    margin-left: -30px;
+    width: 155px;
+}
+
+.card-box{
+    width: 195px;
+    align-items:flex-start;
+    margin-left: 286px;
+    margin-top: 100px;
+    
+}
+.box-container{
+  height: 89vh;
+
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    // background-color: #abacac;
+    // background-color: rgb(233, 201, 251);
+  
+}
+
+.our-services, .our-services1 {
+    margin-top: 9px;
+    // margin-left: 10px;
+    align-items: center;
+    padding-bottom: 30px;
+    padding: 0 50px;
+    min-height: 200px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    transition: all .4s ease-in-out;
+    border-radius: 179px;
+    box-shadow: 0 0 25px 0 rgba(217, 217, 217, 0.888);
+    // height: 89vh;
+
+}
+
+
+.h4{
+    text-align: center;
+    margin-left: -10px;
+    font-size: 20px;
+    margin-top: 37px;
+}
+
+.OutBox:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    // background-image: linear-gradient(-45deg, #fb0054 0%, #f55b2a 100%)
+    background-image: linear-gradient(to right, #9e63e2, #e859c2);
+}
+
+.InBox:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(to right, #9e63e2, #e859c2);
+     
+}
+
+
+.box1{
+  // background-color: #e859c2;
+  border-radius: 48px;
+  background-color:rgb(251, 201, 211) ;
+}

@@ -1,0 +1,32 @@
+{
+    "response_message": "Code executed successfully",
+    "response_text": [
+        {
+            "AGEING": "DQ",
+            "OPEN_LESS_THAN_10": "ONE",
+            "OPEN_BETWEEN_11_30": "TWO",
+            "OPEN_GREATER_THAN_30": "three",
+            "CLOSE_LESS_THAN_10": "four",
+            "CLOSE_BETWEEN_11_30": "five",
+            "CLOSE_GREATER_THAN_30": "six"
+        },
+        {
+            "AGEING": "Val",
+            "OPEN_LESS_THAN_10": "ONE",
+            "OPEN_BETWEEN_11_30": "TWO",
+            "OPEN_GREATER_THAN_30": "three",
+            "CLOSE_LESS_THAN_10": "four",
+            "CLOSE_BETWEEN_11_30": "five",
+            "CLOSE_GREATER_THAN_30": "six"
+        },
+        {
+            "AGEING": "others",
+            "OPEN_LESS_THAN_10": "ONE",
+            "OPEN_BETWEEN_11_30": "TWO",
+            "OPEN_GREATER_THAN_30": "three",
+            "CLOSE_LESS_THAN_10": "four",
+            "CLOSE_BETWEEN_11_30": "five",
+            "CLOSE_GREATER_THAN_30": "six"
+        }
+    ]
+}

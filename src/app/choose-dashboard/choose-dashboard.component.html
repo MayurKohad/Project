@@ -1,0 +1,40 @@
+<body>
+    <div class="box-container" style="display: flex;">
+
+
+        <div class="col-md-2 card-box">
+            <div class="box1">
+                <div class="box" (click)="DataQuality()">
+                    <div class="box">
+                        <div class="our-services1 InBox">
+                            <br>
+                            <h4 class="h4">DATA QUALITY & VALUATION DATA</h4><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2  card-box">
+            <div class="box1">
+                <div class="box" (click)="DefectTracker()">
+                    <div class="box">
+                        <div class="our-services OutBox">
+                            <br>
+                            <h4 class="h4">DEFECT TRACKER</h4><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin: 24% -481px ;">
+            <img style="position: fixed; " *ngIf="router.url.includes('ChooseDashboardComponent')"
+                src="../../assets/image/sbi-life-logo.png">
+            <!-- </div> -->
+        </div>
+
+    </div>
+
+
+</body>

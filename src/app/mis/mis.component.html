@@ -1,0 +1,35 @@
+
+<div style="background-color:white; height: fit-content;">
+  <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
+  <!-- <div style="background-color: white;">
+    <div class="redirectPage">
+      <button mat-raised-button color="primary" [routerLink]="['/dashboard-page/']">
+          Redirect to dashboard page
+      </button>
+  </div>
+  </div> -->
+  <div class="backEle"><button class="backBtn" [routerLink]="['/dashboard-page/']"><i class="fa-solid fa-arrow-left"></i></button></div>
+  
+
+
+  <div class="container">
+    <div class="row">
+      <div class="card" (click)="mis_Modules()">
+        <p >Daily</p>
+      </div>
+      <div class="card" (click)="mis_Modules()" >
+        <p  >Weekly</p>
+      </div>
+      <div class="card" (click)="mis_Modules()" >
+       <p > Monthly</p>
+      </div>
+      
+    </div>
+    
+  </div>
+ 
+</div>
+
+
+
+

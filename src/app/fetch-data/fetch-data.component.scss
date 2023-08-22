@@ -1,0 +1,62 @@
+
+.redirectPage {
+    text-align: end;
+    margin: 20px;
+}
+.my-overlay i.fa.fa-spinner.fa-spin, .spinner-big {
+    font-size: 100px !important;
+}
+
+.my-overlay1 {
+    left: 0 !important;
+    top: 0 !important;
+    z-index: 10000 !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed !important;
+    background-color: rgba(0,0,0,0.9) !important;
+    cursor: pointer !important;
+    visibility: visible !important;
+    transition: visibility 0s, opacity 0.4s linear !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: wait !important;
+}
+
+
+.errorbgcolor {
+  background-color: #f1f18a;
+}
+.messagebgcolor {
+  background-color: white;
+}
+
+.noDataContainer{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: x-large;
+    font-weight: 500;
+  }
+
+  
+  
+  td, th {
+    border: 1px solid black !important;
+    text-align: center !important;
+    padding: 8px !important;
+  }
+  
+  .backBtn {
+    padding: 5px 18px;
+    border: none;
+    background: #3f51b5;
+    border-radius: 6px;
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, 
+        rgba(0, 0, 0, 0.12) 0px -12px 30px,
+        rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, 
+        rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}

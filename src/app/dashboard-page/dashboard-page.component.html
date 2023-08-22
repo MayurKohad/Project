@@ -1,0 +1,1050 @@
+<div *ngIf="!showOverlay">
+    
+    <div style="background-color: #3f51b5;">
+        <mat-toolbar style="display: flex;flex-direction: row;">
+
+            <mat-toolbar-row style="border: 1px solid #f4ebf4;margin:10px; height: 55px;">
+                <div>
+                    <button mat-icon-button [matMenuTriggerFor]="payoutList" class="example-icon"
+                        aria-label="Example icon-button with menu icon">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                    <span> DATA QUALITY </span>
+                    <mat-menu #payoutList="matMenu">
+                        <ng-templet>
+                            <button mat-menu-item [matMenuTriggerFor]="Daily">Daily</button>
+
+                            <button mat-menu-item [matMenuTriggerFor]="Weekly"> Weekly </button>
+                            <button mat-menu-item [matMenuTriggerFor]="Monthly"> Monthly </button>
+                            <button mat-menu-item [matMenuTriggerFor]="Miscellaneous"> Miscellaneous </button>
+                            <!-- <button mat-menu-item [matMenuTriggerFor]="Unclaim"> Unclaim </button> -->
+                            <!-- <button mat-menu-item [matMenuTriggerFor]="Adhoc">Adhoc</button> -->
+
+                        </ng-templet>
+                    </mat-menu>
+
+                    <!-- <mat-menu #Unclaim>
+                        <ng-template matMenuContent>
+                            <button mat-menu-item (click)="menuenter('DEATH',' Death',1)"
+                                title=" Death">
+                                Death </button>
+                                <button mat-menu-item (click)="menuenter('MATURITY','Maturity',2)"
+                                title=" Maturity">
+                                Maturity </button>
+                                <button mat-menu-item (click)="menuenter('LTR','LTR',3)"
+                                title="LTR">
+                                LTR </button>
+                                <button mat-menu-item (click)="menuenter('SURRENDER',' Surrender',4)"
+                                title=" Surrender">
+                                Surrender </button>
+                                <button mat-menu-item (click)="menuenter('SB','SB',5)"
+                                title=" SB">
+                                SB</button>
+                        </ng-template>
+                    </mat-menu> -->
+
+                    <mat-menu #Miscellaneous>
+                        <ng-template matMenuContent>
+                            <button mat-menu-item (click)="menuenter('FUND_VALUE_QUERY',' Fund Value Query',1)"
+                                title=" Fund Value Query">
+                                Fund Value Query </button>
+                        </ng-template>
+                    </mat-menu>
+
+                    <mat-menu #Daily="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item (click)="menuenter('ALLOCATION_CHARGES','Allocation Charges',0)"
+                                title="Allocation Charges">
+                                Allocation Charges </button>
+                            <button mat-menu-item [matMenuTriggerFor]="MORTALITY_CHARGES" title="Mortality Charges">
+                                Mortality Charges</button>
+                            <button mat-menu-item [matMenuTriggerFor]="DISCONTINUANCE_CHARGES"
+                                title="Discontinuance Charges">DiscontinuanceCharges</button>
+                            <button mat-menu-item
+                                (click)="menuenter('MATURITY_OVER_BUT_STATUS_NOT_CHANGED','Maturity Over But Status Not Changed',0)"
+                                title=" Maturity Over But Status Not Changed">
+                                Maturity Over But Status Not Changed </button>
+                            <button mat-menu-item (click)="menuenter('ADMIN_CHARGES', 'Admin Charges',0)"
+                                title="Admin Charges"> Admin Charges
+                            </button>
+                            <button mat-menu-item (click)="menuenter('ADMIN_SKIPPED_CASES','Admin Skipped Cases',0)"
+                                title="  Admin Skipped Cases">
+                                Admin Skipped Cases </button>
+                            <button mat-menu-item
+                                (click)="menuenter('MORTALITY_CHARGES_SKIPPED_CASES','Mortality Skipped Cases',0)"
+                                title=" Mortality Skipped Cases">
+                                Mortality Skipped Cases </button>
+                            <button mat-menu-item
+                                (click)="menuenter('ALLOCATION_CHARGES_UNITIZATION','Allocation Charges Unitization',0)"
+                                title="Allocation Charges Unitization">
+                                Allocation Charges Unitization</button>
+                            <button mat-menu-item
+                                (click)="menuenter('MORTALITY_CHARGES_UTILIZATION','Mortality Charges Unitizaton',0)"
+                                title="Mortality Charges Unitizaton ">
+                                Mortality Charges Unitizaton </button>
+                            <button mat-menu-item
+                                (click)="menuenter('ADMIN_CHARGES_UTILIZATION','Admin Charges Unitization',0)"
+                                title="Admin Charges Unitization"> Admin
+                                Charges Unitization </button>
+                            <button mat-menu-item
+                                (click)="menuenter('POLICIES_MATURED_BUT_NOT_IN_DUE_LIST','Policies Matured but Not in Due List',0)"
+                                title="Policies Matured but Not in Due List">
+                                Policies Matured but Not in Due List </button>
+                            <button mat-menu-item [matMenuTriggerFor]="DEPOSIT_PRESENT_BUT_NOT_ALLOCATED"
+                                title="Deposit Present but not allocated">Deposit Present but not allocated</button>
+                                <button mat-menu-item
+                                (click)="menuenter('STATUS_NOT_LAPSED_AFTER_GRACE_PERIOD','Status Not Lapsed After Grace Period',0)"
+                                title="Status Not Lapsed After Grace Period">Status Not Lapsed After Grace Period </button>
+                                <button mat-menu-item
+                                (click)="menuenter('LTR_NOT_PROCEED_AFTER_LOCK-IN-PERIOD','LTR Not Proceed After Lock-in-Period',0)"
+                                title="LTR Not Proceed After Lock-in-Period"> LTR Not Proceed After Lock-in-Period </button>
+                                <button mat-menu-item
+                                (click)="menuenter('SB_SKIPPED_CASES','SB Skipped Cases',0)"
+                                title="SB Skipped Cases">SB Skipped Cases</button>
+                                <button mat-menu-item [matMenuTriggerFor]="UNCLAIM_"
+                                title="Unclaim">Unclaimed Movement</button>
+                        </ng-template>
+                    </mat-menu>
+                    <mat-menu #UNCLAIM_>
+                        <ng-template matMenuContent>
+                            <button mat-menu-item (click)="menuenter('UNCLAIM_',' Death',1)"
+                                title=" Death">
+                                Death </button>
+                                <button mat-menu-item (click)="menuenter('UNCLAIM_','Maturity',2)"
+                                title=" Maturity">
+                                Maturity </button>
+                                <button mat-menu-item (click)="menuenter('UNCLAIM_','LTR',3)"
+                                title="LTR">
+                                LTR </button>
+                                <button mat-menu-item (click)="menuenter('UNCLAIM_',' Policy Deposit Refund',4)"
+                                title=" Policy Deposit Refund">
+                                Policy Deposit Refund </button>
+                                <button mat-menu-item (click)="menuenter('UNCLAIM_','SB',5)"
+                                title=" SB">
+                                SB</button>
+                        </ng-template>
+                    </mat-menu>
+
+
+                    <mat-menu #Weekly="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item [matMenuTriggerFor]="SB_SKIPPED_CASES_OLD"
+                                title="SB Skipped Cases(OLD)"> SB Skipped Cases(OLD)</button>
+                            <button mat-menu-item [matMenuTriggerFor]="ANNUITY_SKIPPED_CASES"
+                                title="Annuity Skipped Cases"> Annuity Skipped Cases</button>
+                            <button mat-menu-item (click)="menuenter('SB_SKIPPED_CASES_NEW','SB Skipped cases (New)',0)"
+                                title="SB Skipped cases (New)">
+                                SB Skipped cases (New) </button>
+                            <button mat-menu-item
+                                (click)="menuenter('ADDITIONAL_UNITIZATION_AT_THE_TIME_OF_REVIVAL','Addtional Unitization at the time of Revival',0)"
+                                title="Addtional Unitization at the time of Revival">
+                                Addtional Unitization at the time of Revival </button>
+                        </ng-template>
+                    </mat-menu>
+                    <mat-menu #Monthly="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                                [matMenuTriggerFor]="CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT"
+                                title="Correctness of Increasing and decreasing Sum Assured Benefit">Correctness
+                                of Increasing and decreasing Sum Assured Benefit </button>
+                            <!-- (click)="menuenter('CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT','Correctness of Increasing and decreasing Sum Assured Benefit',0)" -->
+                            <button mat-menu-item
+                                (click)="menuenter('DEFERRED_MATURITY_PAYOUTS','Deferred Maturity Payouts',0)"
+                                title="Deferred Maturity Payouts"> Deferred
+                                Maturity Payouts </button>
+                            <button mat-menu-item [matMenuTriggerFor]="RIDER_SA_CAPPING" title="Rider SA Capping"> Rider
+                                SA Capping </button>
+
+                            <button mat-menu-item [matMenuTriggerFor]="LTR_PROCESS_STATUS_CHANGES"
+                                title="LTR process - status changes">
+                                LTR process - status changes </button>
+                                <!-- <button mat-menu-item
+                                (click)="menuenter('LTR_PROCESS_STATUS_CHANGES','LTR process - status changes',0)"
+                                title="LTR process - status changes">
+                                LTR process - status changes </button> -->
+
+                            <button mat-menu-item
+                                [matMenuTriggerFor]="CORRECTNESS_OF_LOYALTY_ADDITIONS_UNDER_ULIP_PRODUCTS"
+                                title="Correctness of Loyalty additions under ULIP products"> Correctness of Loyalty
+                                additions under ULIP products </button>
+                            <button mat-menu-item
+                                (click)="menuenter('LOYALTY_ADDITION_NOT_APPLIED_ON_THRESHOLD_DATES','Loyaltyaddition not applied on threshold dates',0)"
+                                title="Loyaltyaddition not applied on threshold dates">
+                                Loyalty addition not applied on threshold dates </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTNESS_OF_FUNDING_UNDER_WAIVER_CASES',' Correctness of funding under waiver casess',0)"
+                                title="Correctness of funding under waiver casess">
+                                Correctness of funding under waiver cases </button>
+                            <button mat-menu-item
+                                (click)="menuenter('FUNDING_NOT_DONE_UNDER_WAIVER_CASES','Funding not done under waiver cases',0)"
+                                title="Funding not done under waiver cases">
+                                Funding not done under waiver cases </button>
+                            <button mat-menu-item [matMenuTriggerFor]="CORRECTNESS_OF_REBALANCING_EVENTS"
+                                title="Correctness of Rebalancing Events"> Correctness of Rebalancing Events
+                            </button>
+
+                            <button mat-menu-item [matMenuTriggerFor]="REBALANCING_SKIPPED_CASES"
+                                title="Rebalancing Skipped Cases"> Rebalancing Skipped Cases
+                            </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTNESS_CHECKING_OF_INCREASING_ANNUITY_OPT','Correctness checking of Increasing Annuity opt (1.5 & 1.6 )',0)"
+                                title="Correctness checking of Increasing Annuity opt (1.5 & 1.6 )">
+                                Correctness checking of Increasing Annuity opt (1.5 & 1.6 ) </button>
+                            <!-- <button mat-menu-item
+                                (click)="menuenter('RIDER_TERM_OVER_BUT_STATUS_NOT_CHANGED','Rider Term over but status not changed',0)" title="Rider Term over but status not changed">
+                                Rider Term over but status not changed </button> -->
+
+                            <button mat-menu-item [matMenuTriggerFor]="RIDER_TERM_OVER_BUT_STATUS_NOT_CHANGED"
+                                title="Rider Term over but status not changed"> Rider Term over but status not changed
+                            </button>
+
+                            <button mat-menu-item
+                                (click)="menuenter('POLICY_STATUS_EXPIRED_BUT_RIDER_STATUS_INFORCE','Policy status expired but rider status inforce',0)"
+                                title="Policy status expired but rider status inforce">
+                                Policy status expired but rider status inforce </button>
+                            <button mat-menu-item
+                                (click)="menuenter('PPA_CALCUATION_UNDER_FLEXI_SMART,LIFE_LONG_PENSION_AND_LIFE_LONG_PENSION_PLUS','PPA calcuation under Flexi Smart , Life long Pension and Life long Pension Plus',0)"
+                                title="PPA calcuation under Flexi Smart , Life long Pension and Life long Pension Plus">
+                                PPA calcuation under Flexi Smart , Life long Pension and Life long Pension Plus
+                            </button>
+                            <button mat-menu-item
+                                (click)="menuenter('FUND_VALUE_CALCUATION_UNDER_1M_FLEXI_SMART_PLUS','Fund value calcuation under 1M Flexi smart Plus',0)"
+                                title="Fund value calcuation under 1M Flexi smart Plus">
+                                Fund value calcuation under 1M Flexi smart Plus </button>
+                            <button mat-menu-item
+                                (click)="menuenter('DOC_FUP_DATE_MISMATCH','DOC & FUP Date mismatch',0)"
+                                title="DOC & FUP Date mismatch">
+                                DOC & FUP Date mismatch </button>
+
+                            <button mat-menu-item
+                                (click)="menuenter('EXTRANNEOUS_OD_AMOUNT',' Extranneous OD amount',0)"
+                                title="Extranneous OD amount">
+                                Extranneous OD amount </button>
+                            <button mat-menu-item
+                                (click)="menuenter('STATUS_NOT_MOVED_TO_LTR_POST_LOCK_IN_PERIOD_OVER','Status not moved to LTR post lock in period over',0)"
+                                title="Status not moved to LTR post lock in period over">
+                                Status not moved to LTR post lock in period over </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CLIENT_STATUS_DEATH_BUT_POLICY_STATUS_IS_INFORCE','Client status Death but policy status is inforce',0)"
+                                title="Client status Death but policy status is inforce">
+                                Client status Death but policy status is inforce </button>
+                            <!-- <button mat-menu-item
+                                (click)="menuenter('CORRECTNESS_OF_AMOUNT_POLICY_DEPOSIT_PRESENT_IN_POLICY','Correctness of amount Policy deposit present in policy',0)"
+                                title="Correctness of amount Policy deposit present in policy">
+                                Correctness of amount Policy deposit present in policy </button> -->
+                            <button mat-menu-item
+                                (click)="menuenter('PREMIUM_HOLIDAY_UNDER_PRODUCT_56_FLEXI_SMART','Premium Holiday under product 56 Flexi Smart',0)"
+                                title="Premium Holiday under product 56 Flexi Smart">
+                                Premium Holiday under product 56 Flexi Smart </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTNESS_CHECKING_OF_GUARANTEED_ADDITIONS','Correctness checking of Guaranteed Additions',0)"
+                                title="Correctness checking of Guaranteed Additions">
+                                Correctness checking of Guaranteed Additions </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CASES_WHERE_PREMIUM_PAYING_TERM_IS_MORE_THAN_POLICY_TERM','Cases where Premium paying term is more than policy term',0)"
+                                title="Cases where Premium paying term is more than policy term">
+                                Cases where Premium paying term is more than policy term </button>
+                            <button mat-menu-item (click)="menuenter('CLIENT_ID_MERGER','Client ID merger',0)"
+                                title="Client ID merger">
+                                Client ID merger </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CI_RIDER_PREMIUM_IS_ZERO_FOR_IN_FORCE_CASES','CI Rider premium is zero for in-force cases',0)"
+                                title="CI Rider premium is zero for in-force cases">
+                                CI Rider premium is zero for in-force cases </button>
+                            <button mat-menu-item
+                                (click)="menuenter('SB_NOT_PAID_POST_REVIVAL','SB not paid post revival',0)"
+                                title="SB not paid post revival">
+                                SB not paid post revival </button>
+                            <button mat-menu-item
+                                (click)="menuenter('MORTLITY_GOT_DEDUCTED_IN_WAIVER_POLICIES','Mortlity got deducted in Waiver policies',0)"
+                                title="Mortlity got deducted in Waiver policies">
+                                Mortlity got deducted in Waiver policies </button>
+                            <button mat-menu-item
+                                (click)="menuenter('UNITS_EQUAL_TO_ZERO_FOR_INFORCE_POLICIES','Units equal to zero for Inforce policies',0)"
+                                title="Units equal to zero for Inforce policies">
+                                Units equal to zero for Inforce policies</button>
+                            <button mat-menu-item
+                                (click)="menuenter('SUM_ASSURED_NOT_CHANGED_POST_REVIVAL','Sum assured not changed post revival',0)"
+                                title="Sum assured not changed post revival">
+                                Sum assured not changed post revival </button>
+                            <button mat-menu-item (click)="menuenter('SB_PAID_FOR_RPU_CASES','SB paid for RPU cases',0)"
+                                title="SB paid for RPU cases">
+                                SB paid for RPU cases</button>
+                            <!-- <button mat-menu-item
+                                (click)="menuenter('GRACE_PERIOD_IS_OVER_BUT_POLICY_NOT_LAPSED','Grace Period is over but policy not lapsed',0)"
+                                title="Grace Period is over but policy not lapsed">
+                                Grace Period is over but policy not lapsed </button> -->
+                            <button mat-menu-item
+                                (click)="menuenter('POLICY_STATUS_MOVED_BACK_FROM_EXIT_TO_INFORCE','Policy status moved back from Exit to Inforce',0)"
+                                title="Policy status moved back from Exit to Inforce">
+                                Policy status moved back from Exit to Inforce</button>
+
+                                <button mat-menu-item [matMenuTriggerFor]="UNCLAIM"
+                                title="unclaim">Unclaimed Movement</button>
+                        </ng-template>
+                    </mat-menu>
+                    <!-- <mat-menu #Adhoc="matMenu">
+                    <ng-template matMenuContent>
+                       
+
+                    </ng-template>
+                </mat-menu> -->
+                <mat-menu #UNCLAIM>
+                    <ng-template matMenuContent>
+                        <button mat-menu-item (click)="menuenter('UNCLAIM',' Death',1)"
+                            title=" Death">
+                            Death </button>
+                            <button mat-menu-item (click)="menuenter('UNCLAIM','Maturity',2)"
+                            title=" Maturity">
+                            Maturity </button>
+                            <button mat-menu-item (click)="menuenter('UNCLAIM','LTR',3)"
+                            title="LTR">
+                            LTR </button>
+                            <button mat-menu-item (click)="menuenter('UNCLAIM','Surrender ',4)"
+                            title=" Policy Deposit Refund">
+                            Surrender </button>
+                    </ng-template>
+                </mat-menu>
+
+                    <mat-menu #CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT','correctness of increasing and decreasing sum assured benefit - Inforce_ING',1)"
+                                title="INFORCE_ING">INFORCE_ING</button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT','correctness of increasing and decreasing sum assured benefit - paid-up_ING',2)"
+                                title="PAID-UP_ING">PAID-UP_ING</button>
+                        </ng-template>
+                    </mat-menu>
+                    <mat-menu #DISCONTINUANCE_CHARGES="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                                (click)="menuenter('DISCONTINUANCE_CHARGES','Discontinuance Charges - Ulip',1)"
+                                title="Ulip">Ulip</button>
+                            <button mat-menu-item
+                                (click)="menuenter('DISCONTINUANCE_CHARGES','Discontinuance Charges - 1M',2)"
+                                title="1M">1M</button>
+                        </ng-template>
+                    </mat-menu>
+                    <mat-menu #DEPOSIT_PRESENT_BUT_NOT_ALLOCATED="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                                (click)="menuenter('DEPOSIT_PRESENT_BUT_NOT_ALLOCATED','Deposit Present but not allocated - ULIP',1)"
+                                title="ULIP">ULIP</button>
+                            <button mat-menu-item
+                                (click)="menuenter('DEPOSIT_PRESENT_BUT_NOT_ALLOCATED','Deposit Present but not allocated - NON_ULIP',2)"
+                                title="NON ULIP">NON ULIP</button>
+                        </ng-template>
+                    </mat-menu>
+                    <mat-menu #ANNUITY_SKIPPED_CASES="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                                (click)="menuenter('ANNUITY_SKIPPED_CASES','Annuity Skipped Cases - Yearly',1)"
+                                titel="Yearly">Yearly</button>
+                            <button mat-menu-item
+                                (click)="menuenter('ANNUITY_SKIPPED_CASES','Annuity Skipped Cases - Quartly',2)"
+                                titel="Quartly">Quartly</button>
+                            <button mat-menu-item
+                                (click)="menuenter('ANNUITY_SKIPPED_CASES','Annuity Skipped Cases - Half_Yearly',3)"
+                                titel="Half_Yearly">Half_Yearly</button>
+                            <button mat-menu-item
+                                (click)="menuenter('ANNUITY_SKIPPED_CASES','Annuity Skipped Cases - Monthly',4)"
+                                titel="Monthly">Monthly</button>
+                        </ng-template>
+                    </mat-menu>
+                    <mat-menu #SB_SKIPPED_CASES_OLD="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item (click)="menuenter('SB_SKIPPED_CASES','SB Skipped Cases - 1N',1)"
+                                title="1N"> 1N
+                            </button>
+                            <button mat-menu-item (click)="menuenter('SB_SKIPPED_CASES','SB Skipped Cases - 1P',2)"
+                                title="1P"> 1P
+                            </button>
+                            <button mat-menu-item (click)="menuenter('SB_SKIPPED_CASES','SB Skipped Cases - 04', 3)"
+                                title="04"> 04
+                            </button>
+                            <button mat-menu-item (click)="menuenter('SB_SKIPPED_CASES','SB Skipped Cases - 12', 4)"
+                                title="12"> 12
+                            </button>
+                            <button mat-menu-item (click)="menuenter('SB_SKIPPED_CASES','SB Skipped Cases - 14', 5)"
+                                title="14"> 14
+                            </button>
+                            <button mat-menu-item (click)="menuenter('SB_SKIPPED_CASES','SB Skipped Cases - 17', 6)"
+                                title="17"> 17
+                            </button>
+                            <button mat-menu-item (click)="menuenter('SB_SKIPPED_CASES','SB Skipped Cases - 57', 7)"
+                                title="57"> 57
+                            </button>
+                        </ng-template>
+                    </mat-menu>
+                    <mat-menu #CORRECTNESS_OF_REBALANCING_EVENTS="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTNESS_OF_REBALANCING_EVENTS','Correctness_of_Rebalancing_Events -1H', 1)"
+                                titel="1H">
+                                1H </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTNESS_OF_REBALANCING_EVENTS','Correctness_of_Rebalancing_Events - 2Q', 2)"
+                                titel="2Q">
+                                2Q</button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTNESS_OF_REBALANCING_EVENTS','Correctness_of_Rebalancing_Events - 23', 3)"
+                                titel="23">
+                                23</button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTNESS_OF_REBALANCING_EVENTS','Correctness_of_Rebalancing_Events - 2J', 4)"
+                                titel="2J">
+                                2J</button>
+                        </ng-template>
+                    </mat-menu>
+
+                    <mat-menu #RIDER_TERM_OVER_BUT_STATUS_NOT_CHANGED="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                                (click)="menuenter('RIDER_TERM_OVER_BUT_STATUS_NOT_CHANGED','Rider Term over but status not changed - ULIP', 1)"
+                                title="ULIP"> ULIP
+                            </button>
+                            <button mat-menu-item
+                                (click)="menuenter('RIDER_TERM_OVER_BUT_STATUS_NOT_CHANGED','Rider Term over but status not changed - NON_ULIP', 2)"
+                                title="NON_ULIP"> NON_ULIP
+                            </button>
+
+                        </ng-template>
+                    </mat-menu>
+
+                    <mat-menu #REBALANCING_SKIPPED_CASES="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                                (click)="menuenter('REBALANCING_SKIPPED_CASES','Rebalancing Skipped Cases - 1Q', 1)"
+                                title="1Q"> 1Q
+                            </button>
+                            <button mat-menu-item
+                                (click)="menuenter('REBALANCING_SKIPPED_CASES','Rebalancing Skipped Cases - 23', 2)"
+                                title="23"> 23
+                            </button>
+                            <button mat-menu-item
+                                (click)="menuenter('REBALANCING_SKIPPED_CASES','Rebalancing Skipped Cases - 1H', 3)"
+                                title="1H"> 1H
+                            </button>
+                            <button mat-menu-item
+                                (click)="menuenter('REBALANCING_SKIPPED_CASES','Rebalancing Skipped Cases - 2J', 4)"
+                                title="2J"> 2J
+                            </button>
+                            <button mat-menu-item
+                                (click)="menuenter('REBALANCING_SKIPPED_CASES','Rebalancing Skipped Cases - 1C', 5)"
+                                title="1C"> 1C
+                            </button>
+                            <button mat-menu-item
+                                (click)="menuenter('REBALANCING_SKIPPED_CASES','Rebalancing Skipped Cases - 27', 6)"
+                                title="27"> 27
+                            </button>
+                        </ng-template>
+                    </mat-menu>
+
+                    <mat-menu #RIDER_SA_CAPPING="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                                (click)="menuenter('RIDER_SA_CAPPING','Rider SA Capping - ADB Rider', 1)"
+                                title="ADB Rider">ADB Rider </button>
+                            <button mat-menu-item
+                                (click)="menuenter('RIDER_SA_CAPPING','Rider SA Capping - ATPD Rider', 2)"
+                                title="ATPD Rider"> ATPD Rider
+                            </button>
+                            <button mat-menu-item
+                                (click)="menuenter('RIDER_SA_CAPPING','Rider SA Capping - Preferred Term Rider', 3)"
+                                title="Preferred Term Rider">
+                                Preferred Term Rider </button>
+                            <!-- <button mat-menu-item
+                            (click)="menuenter('RIDER_SA_CAPPING','Rider SA Capping - AD & TPD Rider', 4)" title=""> AD & TPD
+                            Rider </button> -->
+                            <button mat-menu-item
+                                (click)="menuenter('RIDER_SA_CAPPING','Rider SA Capping - Criti Care Rider', 5)"
+                                title="Criti Care Rider"> Criti
+                                Care
+                                Rider </button>
+                        </ng-template>
+                    </mat-menu>
+
+                    <mat-menu #LTR_PROCESS_STATUS_CHANGES="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                                (click)="menuenter('LTR_PROCESS_STATUS_CHANGES','LTR_PROCESS_STATUS_CHANGES - 56', 1)"
+                                title="56">56 </button>
+                            <button mat-menu-item
+                                (click)="menuenter('LTR_PROCESS_STATUS_CHANGES','LTR_PROCESS_STATUS_CHANGES - old ULIP', 2)"
+                                title=" OLD ULIP"> OLD ULIP
+                            </button>
+                            <button mat-menu-item
+                                (click)="menuenter('LTR_PROCESS_STATUS_CHANGES','LTR_PROCESS_STATUS_CHANGES- ULIP - After Lock Ln Period ', 3)"
+                                title="ULIP - After Lock Ln Period">
+                                ULIP - After Lock Ln Period </button>
+                            
+                        </ng-template>
+                    </mat-menu>
+
+
+
+                    <mat-menu #check_incr_sum_benefit="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTIVENESS_OF_CHECKING_INCREASING_SUM_ASSURED_BENEFIT','Correctivenes of checking Increasing Sum Assured Benefit - 1G', 1)"
+                                titel="1G">
+                                1G </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTIVENESS_OF_CHECKING_INCREASING_SUM_ASSURED_BENEFIT','Correctivenes of checking Increasing Sum Assured Benefit - 45', 2)"
+                                titel="45">
+                                45 </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTIVENESS_OF_CHECKING_INCREASING_SUM_ASSURED_BENEFIT','Correctivenes of checking Increasing Sum Assured Benefit - 06', 3)"
+                                titel="06">
+                                06 </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTIVENESS_OF_CHECKING_INCREASING_SUM_ASSURED_BENEFIT','Correctivenes of checking Increasing Sum Assured Benefit - 08', 4)"
+                                titel="08">
+                                08 </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTIVENESS_OF_CHECKING_INCREASING_SUM_ASSURED_BENEFIT','Correctivenes of checking Increasing Sum Assured Benefit - 1C', 5)"
+                                titel="1C">
+                                1C </button>
+                        </ng-template>
+                    </mat-menu>
+
+                    <mat-menu #CORRECTNESS_OF_LOYALTY_ADDITIONS_UNDER_ULIP_PRODUCTS="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTNESS_OF_LOYALTY_ADDITIONS_UNDER_ULIP_PRODUCTS','Correctness of Loyalty additions under ULIP products - 30', 1)"
+                                titel="30">
+                                30 </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTNESS_OF_LOYALTY_ADDITIONS_UNDER_ULIP_PRODUCTS','Correctness of Loyalty additions under ULIP products - 51', 2)"
+                                titel="51">
+                                51 </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTNESS_OF_LOYALTY_ADDITIONS_UNDER_ULIP_PRODUCTS','Correctness of Loyalty additions under ULIP products - 28', 3)"
+                                titel="28">
+                                28 </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTNESS_OF_LOYALTY_ADDITIONS_UNDER_ULIP_PRODUCTS','Correctness of Loyalty additions under ULIP products - 36', 4)"
+                                titel="36">
+                                36 </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTNESS_OF_LOYALTY_ADDITIONS_UNDER_ULIP_PRODUCTS','Correctness of Loyalty additions under ULIP products - 49', 5)"
+                                titel="49">
+                                49 </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTNESS_OF_LOYALTY_ADDITIONS_UNDER_ULIP_PRODUCTS','Correctness of Loyalty additions under ULIP products - 24', 6)"
+                                titel="24">
+                                24 </button>
+                        </ng-template>
+                    </mat-menu>
+                    <mat-menu #corre_rebalancing_events="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTIVENESS_OF_REBALANCING_EVENTS','Correctivnes of Rebalancing Events - 1Q',1)"
+                                titel="1Q">
+                                1Q </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTIVENESS_OF_REBALANCING_EVENTS','Correctivnes of Rebalancing Events - 23',2)"
+                                titel="23">
+                                23 </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTIVENESS_OF_REBALANCING_EVENTS','Correctivnes of Rebalancing Events - 1H',3)"
+                                titel="1H">
+                                1H </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTIVENESS_OF_REBALANCING_EVENTS','Correctivnes of Rebalancing Events - 2J',4)"
+                                titel="2J">
+                                2J </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTIVENESS_OF_REBALANCING_EVENTS','Correctivnes of Rebalancing Events - 1C',5)"
+                                titel="1C">
+                                1C </button>
+                            <button mat-menu-item
+                                (click)="menuenter('CORRECTIVENESS_OF_REBALANCING_EVENTS','Correctivnes of Rebalancing Events - 27',6)"
+                                titel="27">
+                                27 </button>
+                        </ng-template>
+                    </mat-menu>
+                    <mat-menu #MORTALITY_CHARGES="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                                (click)="menuenter('MORTALITY_CHARGES','Mortality Charges - STRANDARD ',1)"
+                                titel="STRANDARD">STRANDARD
+                            </button>
+                            <button mat-menu-item (click)="menuenter('MORTALITY_CHARGES','Mortality Charges - EXTRA',2)"
+                                titel="EXTRA">EXTRA</button>
+                        </ng-template>
+                    </mat-menu>
+
+
+                </div>
+            </mat-toolbar-row>
+
+            <mat-toolbar-row style="border: 1px solid #f4ebf4; margin:10px; height: 55px;">
+                <div>
+                    <button mat-icon-button [matMenuTriggerFor]="payoutList2" class="example-icon"
+                        aria-label="Example icon-button with menu icon">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                    <span> VALUATION DATA </span>
+                    <mat-menu #payoutList2="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item [matMenuTriggerFor]="Unit_Inconsistency"
+                                title="Units Inconsistency">Units Inconsistency</button>
+                            <!-- <button mat-menu-item (click)="menuenter('STATIC_FIELDS', 'Static fields',0)"
+                                title="Static fields"> Static fields
+                            </button> -->
+                           
+                            <button mat-menu-item [matMenuTriggerFor]="static_feild"
+                                title="Static fields"> Static fields</button>
+                                <!-- <button mat-menu-item  (click)="menuenter('static_feild',' static feild',0)"
+                                title="Static fields"> Static fields</button> -->
+
+                            <button mat-menu-item [matMenuTriggerFor]="CRITICAL_FIELDS"
+                                title="Critical fields">
+                                Critical fields </button>
+
+                                <!-- <button mat-menu-item (click)="menuenter('CRITICAL_FIELDS',' Critical fields',0)"
+                                title="Critical fields">
+                                Critical fields </button> -->
+                                
+                                
+
+                            <button mat-menu-item  [matMenuTriggerFor]="BOUNDARY_CONDITION"
+                                title="Boundary Condition">
+                                Boundary Condition </button>
+
+                                <!-- <button mat-menu-item (click)="menuenter('BOUNDARY_CONDITION','Boundary Condition ',0)"
+                                title="Boundary Condition">
+                                Boundary Condition </button> -->
+
+
+                            <button mat-menu-item [matMenuTriggerFor]="PPA_CALCULATION"
+                                title="PPA Calculation">
+                                PPA Calculation </button>
+
+                                <!-- <button mat-menu-item (click)="menuenter('PPA_CALCULATION','PPA Calculation',0)"
+                                title="PPA Calculation">
+                                PPA Calculation </button> -->
+                               
+                                <button mat-menu-item [matMenuTriggerFor]="CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION"
+                                title="CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION">CORRECTNESS OF INCREASING AND DECREASING SUM ASSURED BENEFIT</button>
+
+                                <button mat-menu-item [matMenuTriggerFor]="LTR_PROCESS_STATUS_CHANGE"
+                                title="LTR_PROCESS_STATUS_CHANGE">
+                                LTR PROCESS STATUS CHANGE </button>
+
+                                <!-- <button mat-menu-item (click)="menuenter('DUPLICATE_ENTRIES','Duplicate Entries',0)"
+                                title="Duplicate Entries">
+                                Duplicate Entries </button> -->
+
+                                <button mat-menu-item [matMenuTriggerFor]="DUPLICATE_ENTRIES"
+                                title="Duplicate Entries">Duplicate Entries
+                                 </button>
+
+                                <!-- <button mat-menu-item (click)="menuenter('RIDER_INCONSISTENCY','Rider Inconsistency',0)"
+                                title="Rider Inconsistencys">
+                                Rider Inconsistency </button> -->
+
+                                <button mat-menu-item [matMenuTriggerFor]="RIDER_INCONSISTENCY"
+                                title="Rider Inconsistency">
+                                Rider Inconsistency </button>
+
+                                <button mat-menu-item (click)="menuenteri('DOD_PRESENT_BUT_STATUS_NOT_DEATH','DOD Present But Status Not Death',0)"
+                                title="DOD Present But Status Not Death">
+                                DOD Present But Status Not Death </button>
+
+
+
+                        </ng-template>
+                    </mat-menu>
+
+                    <mat-menu #DUPLICATE_ENTRIES="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                            (click)="menuenteri('DUPLICATE_ENTRIES','ULIP',1)" title="ULIP"> ULIP</button>
+
+                            <button mat-menu-item
+                            (click)="menuenteri('DUPLICATE_ENTRIES','NON_ULIP',2)" title="NON_ULIP">NON_ULIP</button>
+
+                            <button mat-menu-item
+                            (click)="menuenteri('DUPLICATE_ENTRIES','1M',3)" title="1M">1M </button>
+
+
+                            <button mat-menu-item
+                            (click)="menuenteri('DUPLICATE_ENTRIES','1E',4)" title="1E">1E </button>
+
+                            <button mat-menu-item 
+                            (click)="menuenteri('DUPLICATE_ENTRIES','56',5)" title="56">56 </button>
+
+                            <button mat-menu-item 
+                            (click)="menuenteri('DUPLICATE_ENTRIES','36',6)" title="36">36 </button>
+
+                            <button mat-menu-item 
+                            (click)="menuenteri('DUPLICATE_ENTRIES','Annuity',7)" title="Annuity">Annuity </button>
+                        </ng-template>
+                    </mat-menu>
+
+                    <mat-menu #RIDER_INCONSISTENCY="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                            (click)="menuenteri('RIDER_INCONSISTENCY','ULIP',1)" title="ULIP"> ULIP</button>
+
+                            <button mat-menu-item
+                            (click)="menuenteri('RIDER_INCONSISTENCY','NON_ULIP',2)" title="NON_ULIP">NON_ULIP</button>
+                            
+
+                        </ng-template>
+                    </mat-menu>
+
+                    <mat-menu #LTR_PROCESS_STATUS_CHANGE="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                            (click)="menuenteri('LTR_PROCESS_STATUS_CHANGE','ULIP-18,19,21',1)" title="ULIP-18,19,21"> ULIP-18,19,21
+                        </button>
+
+                        </ng-template>
+                    </mat-menu>
+
+                    <mat-menu #PPA_CALCULATION="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                            (click)="menuenteri('PPA_CALCULATION','1M',1)" title="1M"> 1M</button>
+
+                            <button mat-menu-item
+                            (click)="menuenteri('PPA_CALCULATION','56',2)" title="56">56</button>
+
+                            <button mat-menu-item
+                            (click)="menuenteri('PPA_CALCULATION','36',1)" title="36"> 36</button>
+
+                            <button mat-menu-item
+                            (click)="menuenteri('PPA_CALCULATION','7',2)" title="7">7</button>
+                            
+
+                        </ng-template>
+                    </mat-menu>
+
+                    <mat-menu #BOUNDARY_CONDITION="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                            (click)="menuenteri('BOUNDARY_CONDITION','ULIP',1)" title="ULIP"> ULIP</button>
+
+                            <button mat-menu-item
+                            (click)="menuenteri('BOUNDARY_CONDITION','NON_ULIP',2)" title="NON_ULIP">NON_ULIP</button>
+                            
+
+                        </ng-template>
+                    </mat-menu>
+
+
+                    <mat-menu #CRITICAL_FIELDS="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                            (click)="menuenteri('CRITICAL_FIELDS','ULIP',1)" title="ULIP"> ULIP</button>
+
+                            <button mat-menu-item
+                            (click)="menuenteri('CRITICAL_FIELDS','NON_ULIP',2)" title="NON_ULIP">NON_ULIP</button>
+
+                            <button mat-menu-item
+                            (click)="menuenteri('CRITICAL_FIELDS','1M',3)" title="1M">1M </button>
+
+
+                            <button mat-menu-item
+                            (click)="menuenteri('CRITICAL_FIELDS','1E',4)" title="1E">1E </button>
+
+                            <button mat-menu-item 
+                            (click)="menuenteri('CRITICAL_FIELDS','56',5)" title="56">56 </button>
+
+                        </ng-template>
+                    </mat-menu>
+
+                    <mat-menu #static_feild="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                            (click)="menuenteri('STATIC_FIELDS','ULIP',1)" title="ULIP"> ULIP</button>
+
+                            <button mat-menu-item
+                            (click)="menuenteri('STATIC_FIELDS','NON_ULIP',2)" title="NON_ULIP">NON_ULIP</button>
+
+                            <button mat-menu-item
+                            (click)="menuenteri('STATIC_FIELDS','1M',3)" title="1M">1M </button>
+
+
+                            <button mat-menu-item
+                            (click)="menuenteri('STATIC_FIELDS','1E',4)" title="1E">1E </button>
+
+                            <button mat-menu-item 
+                            (click)="menuenteri('STATIC_FIELDS','56',5)" title="56">56 </button>
+
+                            <button mat-menu-item 
+                            (click)="menuenteri('STATIC_FIELDS','Annuity',6)" title="Annuity">Annuity </button>
+                        </ng-template>
+                    </mat-menu>
+
+                    <mat-menu #CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                                (click)="menuenteri('CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION','correctness of increasing and decreasing sum assured benefit valuation - INFORCE_INDIGO',1)"
+                                title="INFORCE_INDIGO">INFORCE_INDIGO</button>
+                            <button mat-menu-item
+                                (click)="menuenteri('CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION','correctness of increasing and decreasing sum assured benefit valuation - PAID-UP_INDIGO',2)"
+                                title="PAID-UP_INDIGO">PAID-UP_INDIGO</button>
+                                <button mat-menu-item
+                                (click)="menuenteri('CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION','correctness of increasing and decreasing sum assured benefit valuation - ULIP_INDIGO',3)"
+                                title="ULIP_INDIGO">ULIP_INDIGO</button>
+                        </ng-template>
+                    </mat-menu>
+                    <mat-menu #Unit_Inconsistency="matMenu">
+                        <ng-template matMenuContent>
+                            <!-- <button mat-menu-item
+                        (click)="menuenter('DISCONTINUANCE_CHARGES','Discontinuance Charges - Ulip',1)">Ulip</button> -->
+
+                            <button mat-menu-item
+                                (click)="menuenteri('UNITS_INCONSISTENCY','UNITS PRESENT IN PENDING STATUS', 1 )"
+                                title=" Units Present in Pending status">
+                                Units Present in Pending status</button>
+                            <button mat-menu-item
+                                (click)="menuenteri('UNITS_INCONSISTENCY','UNITS PRESENT IN EXIT STATUS', 2 )"
+                                title="Units Present in Exit status">Units Present in Exit status</button>
+                            <button mat-menu-item
+                                (click)="menuenteri('UNITS_INCONSISTENCY','NEGATIVE UNITS PRESENT',3 )"
+                                title="Negative Units Present">Negative Units Present</button>
+                            <button mat-menu-item
+                                (click)="menuenteri('UNITS_INCONSISTENCY','UNITS EQUAL TO ZERO FOR INFORCE POLICIES', 4)"
+                                title="Units equal to zero for inforce policies">Units equal to zero for inforce
+                                policies</button>
+                            <button mat-menu-item
+                                (click)="menuenteri('UNITS_INCONSISTENCY','UNITS PRESENT IN DISCO FUNDS_ULIP', 5)"
+                                title="Units present in disco funds_ULIP">Units present in disco funds_ULIP</button>
+                            <button mat-menu-item
+                                (click)="menuenteri('UNITS_INCONSISTENCY','UNITS PRESENT IN REGULAR FUNDS_ULIP', 6)"
+                                title="Units present in regular funds_ULIP">Units present in regular funds_ULIP</button>
+                            <button mat-menu-item
+                                (click)="menuenteri('UNITS_INCONSISTENCY','UNITS PRESENT IN DISCO FUNDS_1M', 7)"
+                                title="Units present in regular funds_1M">Units present in disco funds_1M</button>
+                            <button mat-menu-item
+                                (click)="menuenteri('UNITS_INCONSISTENCY','UNITS PRESENT IN REGULAR FUNDS_1M', 8)"
+                                title="Units present in regular funds_1M">Units present in regular funds_1M</button>
+                            <!-- <button mat-menu-item
+                                (click)="menuenteri('UNITS_INCONSISTENCY','UNITS EQUAL TO ZERO IN INFORCE POLICES', 5)" title="Units equal to zero in Inforce polices">Units equal to zero in Inforce polices</button>
+                            <button mat-menu-item
+                                (click)="menuenteri('UNITS_INCONSISTENCY','1M UNITS PRESENT IN DISCO & REGULAR FUNDS', 6 )" title="1M_Units present in disco & regular funds">1M_Units present in disco & regular funds</button> -->
+                        </ng-template>
+                    </mat-menu>
+                </div>
+            </mat-toolbar-row>
+
+            <mat-toolbar-row style="border: 1px solid #f4ebf4; margin:10px; height: 55px;">
+                <div>
+                    <button mat-icon-button [matMenuTriggerFor]="payoutList3" class="example-icon"
+                        aria-label="Example icon-button with menu icon">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                    <span> QC MODULE </span>
+                    <mat-menu #payoutList3="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item (mouseenter)="menuenters('DISCO_CHARGES')" title="DISCO CHARGES"
+                                [matMenuTriggerFor]="DISCO_CHARGES"> DISCO CHARGES </button>
+                            <button mat-menu-item (mouseenter)="menuenters('ADMIN_CHARGES')" title="ADMIN CHARGES"
+                                [matMenuTriggerFor]="payout_2">
+                                ADMIN CHARGES </button>
+                            <button mat-menu-item (mouseenter)="menuenters('ALLOCATION_CHARGES')"
+                                title="ALLOCATION CHARGE" [matMenuTriggerFor]="payout_2"> ALLOCATION CHARGES </button>
+                            <button mat-menu-item (mouseenter)="menuenters('NOT_IN_DUE_LIST')" title="NOT IN DUE LIST"
+                                [matMenuTriggerFor]="payout_2"> NOT IN DUE LIST</button>
+                            <button mat-menu-item (mouseenter)="menuenters('STATUS_NOT_CHANGES')"
+                                title="STATUS NOT CHANGES" [matMenuTriggerFor]="payout_2"> STATUS NOT CHANGES </button>
+                            <button mat-menu-item (mouseenter)="menuenters('ADMIN_SKIPPED_CASES')"
+                                title="ADMIN SKIPPED CASES" [matMenuTriggerFor]="payout_2">
+                                ADMIN SKIPPED CASES</button>
+                            <button mat-menu-item (mouseenter)="menuenters('MORTALITY_SKIPPED_CASES')"
+                                title="MORTALITY SKIPPED CASES" [matMenuTriggerFor]="payout_2"> MORTALITY SKIPPED CASES
+                            </button>
+                            <button mat-menu-item (mouseenter)="menuenters('MORTALITY_CHARGES_UNITIZATION')"
+                                title="MORTALITY CHARGES UNITIZATION" [matMenuTriggerFor]="payout_2"> MORTALITY CHARGES
+                                UNITIZATION </button>
+                            <button mat-menu-item (mouseenter)="menuenters('ADMIN_CHARGES_UNITIZATION')"
+                                title="ADMIN CHARGES UNITIZATION" [matMenuTriggerFor]="payout_2"> ADMIN CHARGES
+                                UNITIZATION </button>
+                            <button mat-menu-item (mouseenter)="menuenters('ALLOCATION_AMOUNT_UNITIZATION')"
+                                title="ALLOCATION AMOUNT UNITIZATION" [matMenuTriggerFor]="payout_2"> ALLOCATION AMOUNT
+                                UNITIZATION </button>
+                            <button mat-menu-item (mouseenter)="menuenters('DEPOSITE_PRESENT_BUT_NOT_ALLOCATED')"
+                                title="DEPOSITE PRESENT BUT NOT ALLOCATED"
+                                [matMenuTriggerFor]="DEPOSITE_PRESENT_BUT_NOT_ALLOCATED"> DEPOSITE PRESENT BUT NOT
+                                ALLOCATED
+                            </button>
+                            <button mat-menu-item (mouseenter)="menuenters('MORTALITY_CHARGE')" title=" MORTALITY CHARGE"
+                                [matMenuTriggerFor]="MORTALITY_CHARGE"> MORTALITY CHARGE </button>
+                            <button mat-menu-item (mouseenter)="menuenters('STATUS_NOT_LAPSED_AFTER_GRACE_PERIOD')"
+                                title="STATUS NOT LAPSED AFTER GRACE PERIOD" [matMenuTriggerFor]="payout_2">
+                                STATUS NOT LAPSED AFTER GRACE PERIOD </button>
+                            <!-- <button mat-menu-item (mouseenter)="menuenters('LTR_NOT_PROCESSED_AFTER_LOCK-IN_PERIOD')"
+                                title=" LTR NOT PROCESSED AFTER LOCK-IN PERIOD" [matMenuTriggerFor]="payout_2">
+                                LTR NOT PROCESSED AFTER LOCK-IN PERIOD </button> -->
+                                <button mat-menu-item (mouseenter)="menuenters('SB_Skipped_Cases')" title="SB Skipped Cases"
+                                [matMenuTriggerFor]="payout_2">SB SKIPPED CASE</button>
+                            <!-- <button mat-menu-item (mouseenter)="menuenters('DISCO_CHARGES')"
+                            [matMenuTriggerFor]="Status_not_lapsed_after_grace_period">STATUS NOT LAPSED AFTER GRACE PERIOD  </button>
+                            <button mat-menu-item (mouseenter)="menuenters('DISCO_CHARGES')"
+                            [matMenuTriggerFor]="LTR_not_processed_after_lock-in_period"> LTR NOT PROCESSED AFTER LOCK-IN PERIOD </button> -->
+
+                            <!-- <button mat-menu-item [matMenuTriggerFor]="_UNCLAIM_"
+                                title="unclaim">Unclaim</button> -->
+                                <button mat-menu-item (mouseenter)="menuenters('_UNCLAIM_')" title="UNCLAIM"
+                                [matMenuTriggerFor]="_UNCLAIM_"> UNCLAIMED MOVEMENT </button>
+
+                        </ng-template>
+                    </mat-menu>
+                </div>
+
+                <mat-menu #_UNCLAIM_ = "matMenu">
+                    <ng-template matMenuContent>
+                        <button mat-menu-item (mouseenter)="menuenters('Death',1)" [matMenuTriggerFor]="payout_2"
+                            title=" Death">
+                            Death </button>
+                            <button mat-menu-item (mouseenter)="menuenters('Maturity',2)" [matMenuTriggerFor]="payout_2"
+                            title=" Maturity">
+                            Maturity </button>
+                            <button mat-menu-item (mouseenter)="menuenters('LTR',3)" [matMenuTriggerFor]="payout_2"
+                            title="LTR">
+                            LTR </button>
+                            <button mat-menu-item (mouseenter)="menuenters('Policy_Deposit_Refund',4)" [matMenuTriggerFor]="payout_2"
+                            title=" Policy Deposit Refund">
+                            Policy Deposit Refund </button>
+                    </ng-template>
+                </mat-menu>
+
+                <mat-menu #DISCO_CHARGES="matMenu">
+                    <ng-template matMenuContent>
+                        <button mat-menu-item (mouseenter)="menuenters('1M', 1)" [matMenuTriggerFor]="payout_2"
+                            title="1M"> 1M
+                        </button>
+                        <button mat-menu-item (mouseenter)="menuenters('ULIP_BASE',2)" [matMenuTriggerFor]="payout_2"
+                            title="ULIP_BASE">
+                            ULIP_BASE </button>
+                    </ng-template>
+                </mat-menu>
+                <mat-menu #DEPOSITE_PRESENT_BUT_NOT_ALLOCATED="matMenu">
+                    <ng-template matMenuContent>
+                        <button mat-menu-item (mouseenter)="menuenters('ULIP', 1)" [matMenuTriggerFor]="payout_2"
+                            title="ULIP"> ULIP
+                        </button>
+                        <button mat-menu-item (mouseenter)="menuenters('NON_ULIP',2)" [matMenuTriggerFor]="payout_2"
+                            title="NON ULIP ">
+                            NON ULIP </button>
+                    </ng-template>
+                </mat-menu>
+                <mat-menu #MORTALITY_CHARGE="matMenu">
+                    <ng-template matMenuContent>
+                        <button mat-menu-item (mouseenter)="menuenters('STRANDARD', 1)" [matMenuTriggerFor]="payout_2"
+                            title="STRANDARD">
+                            STRANDARD
+                        </button>
+                        <button mat-menu-item (mouseenter)="menuenters('EXTRA',2)" [matMenuTriggerFor]="payout_2"
+                            title="EXTRA">
+                            EXTRA </button>
+                    </ng-template>
+                </mat-menu>
+
+                <mat-menu #payout="matMenu">
+                    <ng-template matMenuContent>
+                        <button mat-menu-item (click)="selectedPayout('PROCESS_INPUT')"> PROCESS_INPUT </button>
+                        <button mat-menu-item (click)="selectedPayout('PROCESS_LOGIC')"> PROCESS_OUTPUT </button>
+                        <button mat-menu-item (click)="selectedPayout('PROCESS_OUTPUT')"> PROCESS_QC </button>
+                        <button mat-menu-item (click)="selectedPayout('VIEWQCDATA')"> VIEW QC DATA </button>
+                    </ng-template>
+                </mat-menu>
+                <mat-menu #payout_2="matMenu">
+                    <ng-template matMenuContent>
+
+                        <button mat-menu-item (click)="selectedPayout('PROCESS_OUTPUT')"> PROCESS_QC </button>
+                    </ng-template>
+                </mat-menu>
+
+
+                <div *ngIf="displayMessage" style=" padding-top: 500px;padding-bottom: 0 ;padding-left: 10px;">
+                    <div class="customAlert" [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'" style="
+                height: 190px;
+                border: groove;
+                box-shadow: 5px 10px #888888;">
+                        <div class="messageheader" style="padding: 30px;font-weight: 500;font-size: 25px;padding-bottom: 15px;
+                                            background: #3f51b5;color: white;
+                                            padding-top: 10px;margin-bottom: 15px;">
+                            <!-- Information Message :   -->
+                            {{ messageType }}
+                        </div>
+                        <div class="messagebody" style="font-weight: 500;padding-left: 30px; padding-bottom: 10px;">
+                            <!-- server [ error_code : 1 ]  -->
+                            {{ message }}
+                        </div>
+                        <div class="messagebody" style="text-align: center;font-weight: 500;font-size: 20px;">
+                            <!-- No Data Available -->
+                            {{ messageDetails }}
+                        </div>
+
+                        <div style="text-align: right;margin-top: 30px;padding-right: 30px;">
+                            <button style="width: 20%;height: 30px;" (click)="showMessage()">OK</button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="my-overlay1" *ngIf="QCloder" style="display: flex; flex-direction: column;">
+                    <i class="fa fa-spinner fa-spin" aria-hidden="true" style="color: white;"></i>
+                    <span style="color:white; font-size: 30px;">Please wait...</span>
+                </div>
+                <!-- <div class="my-overlay1" *ngIf="showOverlay" style="display: flex; flex-direction: column;">
+                    <i class="fa fa-spinner fa-spin" aria-hidden="true" style="color: white;"></i>
+                    <span style="color:white; font-size: 30px;">Please wait...</span>
+                </div> -->
+
+
+            </mat-toolbar-row>
+            <mat-toolbar-row style="border: 1px solid #f4ebf4; margin:10px; height: 55px;">
+                <div>
+                    <button mat-icon-button [matMenuTriggerFor]="payoutList4" class="example-icon"
+                        aria-label="Example icon-button with menu icon">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                    <!-- //////////////////////// -->
+                    <span> REPORT TRACKER</span>
+                    <mat-menu #payoutList4="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item
+                                (click)="Dashboardtable('Daily_report_tracker','Daily report tracker', 0)">
+                                Daily Report Tracker </button>
+                            <button mat-menu-item
+                                (click)="menuentertable(' Weekly_report_tracker',' Weekly report tracker', 0)">
+                                Weekly Report Tracker </button>
+                            <button mat-menu-item
+                                (click)="menuentertable('Monthly_report_tracker','Monthly report tracker', 0)">
+                                Monthly Report Tracker </button>
+                        </ng-template>
+                    </mat-menu>
+                </div>
+            </mat-toolbar-row>
+
+            <!-- Mis Dashboard -->
+
+            <!-- <mat-toolbar-row style="border: 1px solid #f4ebf4; margin:10px; height: 55px;">
+                <div>
+                    <button mat-icon-button [matMenuTriggerFor]="payoutList5" class="example-icon"
+                        aria-label="Example icon-button with menu icon">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                    <span> MIS</span>
+                    <mat-menu #payoutList5="matMenu">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item (click)="showMISWindow()" title="MIS Dashboard">MIS Dashboard</button>
+                            
+                        </ng-template>
+                    </mat-menu> 
+                </div>
+            </mat-toolbar-row> -->
+
+        </mat-toolbar>
+
+    </div>
+</div>
+<div class="backEle"><button class="backBtn" (click)="backPage()"><i class="fa-solid fa-arrow-left"></i></button></div>

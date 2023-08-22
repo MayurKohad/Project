@@ -1,0 +1,138 @@
+
+
+<div class="box-container">
+    <div>
+        <!-- <h2 class="mat-h2">Dashboard</h2> -->
+        <div class="redirectPage"> 
+                 <button mat-raised-button color="primary" [routerLink]="['/dashboard-page/']">
+                    Redirect to dashboard page
+                </button>             
+        </div>
+        
+        <h5 style="padding: 20px;">
+            Selected Module :
+            <span style="color: blue;"> {{actualModule}} </span> 
+        </h5>
+    </div>
+    <div style="display: flex;flex-direction: row;margin: 20px;">
+        <div *ngIf="openConfirmationBox" class="my-overlay" style="padding: 30%; padding-top: 50px;padding-bottom: 0;position: absolute;z-index: 99999999;">
+        <div class="customAlert"
+                [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'"
+                style="
+                    height: 190px;
+                    border: groove;
+                    
+                    box-shadow: 5px 10px #888888;width: 500px;">
+            <div class="messagebody" style="font-weight: 500;font-size:20px;padding-left: 20px; padding-bottom: 10px;padding-top:50px;padding-right: 20px;">
+                {{messagePopup}}
+            </div>
+        
+            <div style="text-align: right;margin-top: 30px;padding-right: 30px;">
+                <button style="width: 20%;height: 30px;margin-right: 10px;" (click)="showAlert('OK')">OK</button>
+            </div>
+        
+        </div>
+    </div>
+
+    <div class="box-container" style="border: solid 1px #212529;width: 100%;">
+        <div style="display: flex; justify-content: center;">
+            <div style="margin: 34px;font-weight: 500;">Enter date range :</div>
+            <div style="margin: 10px;">
+                <mat-form-field appDateFormat>
+                    <mat-label>Start Date</mat-label>
+                    <input matInput [matDatepicker]="dp2" [max]="today" (dateChange)="addStartDate( $event)"/>
+                    <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+                    <mat-datepicker #dp2 startView="multi-year"></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div style="margin: 10px;">
+                <mat-form-field appDateFormat>
+                    <mat-label>End Date</mat-label>
+                    <input matInput [matDatepicker]="dp3" [max]="today" (dateChange)="addEndDate( $event)"/>
+                    <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+                    <mat-datepicker #dp3 startView="multi-year"></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div style="margin-top: 20px; margin-left: 20px;">
+                <button mat-raised-button color="primary" (click)="submitDateRange()">
+                    Process Input                                       
+                </button>
+            </div>
+        </div>
+        <div *ngIf="export" style="text-align: end;">
+            <button mat-raised-button matTooltip="Export policy data to excel sheet" color="primary" (click)="exportAsXLSX()">
+            Export To Excel
+            </button>
+        </div>
+        <!-- <div *ngIf ="noDataAvailable" style="text-align: center;font-weight: 600;font-size: 20px;">
+            No Data Available for selected date
+        </div> -->
+        <div *ngIf= "noData && !displayCount" class="noDataContainer">
+            <span>
+                No Data Available.
+            </span>
+            <br/>
+            <span style = "font-size: small;">
+                <a [routerLink]="['/dashboard-page/']">
+                    Redirect to process page to fetch more data.
+                </a>
+            </span>
+        </div> 
+        <div *ngIf="displayCount" style="padding: 20px;">
+            <table style="width: 100%;">
+                <tr>
+                    <th colspan="2">
+                        Count Of Cases 
+                    </th>
+                </tr>
+                <tr>
+                    <th>Passed</th>
+                    <th>Failed</th>
+                </tr>
+                <tr>
+                    <td>
+                        {{count.PASS}}
+                    </td>
+                    <td>
+                        {{count.FAIL}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    
+    <div *ngIf="displayMessage" style="padding: 30%; padding-top: 50px;padding-bottom: 0;position: absolute;">
+        <div class="customAlert"
+                [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'"
+                style="
+                    height: 190px;
+                    border: groove;
+                    box-shadow: 5px 10px #888888;">
+            <div class="messageheader" style="padding: 30px;font-weight: 500;font-size: 25px;padding-bottom: 15px;
+                                                background: #3f51b5;color: white;
+                                                padding-top: 10px;margin-bottom: 15px">
+                <!-- Information Message :   -->
+                {{ messageType }}
+            </div>
+            <div class="messagebody" style="font-weight: 500;padding-left: 30px; padding-bottom: 10px;">
+                <!-- server [ error_code : 1 ]  -->
+                {{ message }}
+            </div>
+            <div class="messagebody" style="text-align: center;font-weight: 500;font-size: 20px;">
+                <!-- No Data Available -->
+                {{ messageDetails }}
+            </div>
+        
+            <div style="text-align: right;margin-top: 30px;padding-right: 30px;">
+                <button style="width: 20%;height: 30px;" (click)="showMessage()">OK</button>
+            </div>
+        
+        </div>
+    </div>
+</div>
+<div class="my-overlay1" *ngIf="showOverlay" style="display: flex; flex-direction: column;">
+    <i class="fa fa-spinner fa-spin" aria-hidden="true" style="color: white;"></i>
+    <span style="color:white; font-size: 30px;">Please wait...</span>
+</div>
