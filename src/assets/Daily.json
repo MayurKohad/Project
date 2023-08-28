@@ -1,0 +1,23 @@
+{
+    "response_message": "Code executed successfully",
+    "response_text": [
+        {
+            "Allocation_Charges": "5",
+            "Discontinuance_Charges": "10",
+            "Mortality_Charges": "15",
+            "Maturity_over_but_status_not_changed": "25",
+            "Admin_charges": "23",
+            "Admin_Skipped_cases": "45",
+            "Mortality_Skipped_Cases": "24",
+            "Allocation_Charges_Unitization": "65",
+            "Mortality_Charges_Unitization": "67",
+            "Admin_charges_Unitization": "97",
+            "Policies_Matured_But_Not_In_Due_List": "56",
+            "Deposit_Present_but_not_Allocated": "100",
+            "Status_not_lapsed_after_grace_Period": "90",
+            "LTR_not_Preceed_after_Lock_in_period": "35",
+            "SB_Skipped_Cases": "45",
+            "Unclaimed_Movement": "4"
+        }
+    ]
+}

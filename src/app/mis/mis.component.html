@@ -1,31 +1,25 @@
-
-<div style="background-color:white; height: fit-content;">
+<!-- <div style="background: linear-gradient(0deg, rgba(73,112,154,1) 0%, rgba(36,56,73,1) 100%); height: fit-content;"> -->
+<!-- <div style="background-color:rgb(252, 252, 252); height: fit-content;"> -->
   <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
-  <!-- <div style="background-color: white;">
-    <div class="redirectPage">
-      <button mat-raised-button color="primary" [routerLink]="['/dashboard-page/']">
-          Redirect to dashboard page
-      </button>
-  </div>
-  </div> -->
+  <div class="bgimage" >
+  
   <div class="backEle"><button class="backBtn" [routerLink]="['/dashboard-page/']"><i class="fa-solid fa-arrow-left"></i></button></div>
   
 
 
   <div class="container">
     <div class="row">
-      <div class="card" (click)="mis_Modules()">
+      <div class="card1"  (click)="mis_Daily()">
         <p >Daily</p>
       </div>
-      <div class="card" (click)="mis_Modules()" >
+      <div class="card2 " (click)="mis_Weekly()">
         <p  >Weekly</p>
       </div>
-      <div class="card" (click)="mis_Modules()" >
+      <div class="card3" (click)="mis_Monthly()" >
        <p > Monthly</p>
       </div>
       
     </div>
-    
   </div>
  
 </div>

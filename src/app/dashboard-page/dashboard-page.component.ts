@@ -277,13 +277,14 @@ export class DashboardPageComponent implements OnInit {
     'SB_Skipped_Cases': 216,
     '_UNCLAIM_' : 217,
     'Death':218,
-  'Maturity' : 219,
-  'LTR' :220,
-  'Policy_Deposit_Refund' : 221,
-  'NON_ULIP' :222,
-  'ULIP': 223,
-  'STRANDARD' : 224,
-  'EXTRA' : 225,
+    'Maturity' : 219,
+    'LTR' :220,
+    'Policy_Deposit_Refund' : 221,
+    'NON_ULIP' :222,
+    'ULIP': 223,
+    'STANDARD' : 224,
+    'EXTRA' : 225,
+    'SB' :226,
 
   };
 

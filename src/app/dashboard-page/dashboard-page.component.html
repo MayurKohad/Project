@@ -912,6 +912,9 @@
                             <button mat-menu-item (mouseenter)="menuenters('Policy_Deposit_Refund',4)" [matMenuTriggerFor]="payout_2"
                             title=" Policy Deposit Refund">
                             Policy Deposit Refund </button>
+                            <button mat-menu-item (mouseenter)="menuenters('SB',5)" [matMenuTriggerFor]="payout_2"
+                            title=" SB">
+                            SB </button>
                     </ng-template>
                 </mat-menu>
 
@@ -937,9 +940,9 @@
                 </mat-menu>
                 <mat-menu #MORTALITY_CHARGE="matMenu">
                     <ng-template matMenuContent>
-                        <button mat-menu-item (mouseenter)="menuenters('STRANDARD', 1)" [matMenuTriggerFor]="payout_2"
-                            title="STRANDARD">
-                            STRANDARD
+                        <button mat-menu-item (mouseenter)="menuenters('STANDARD', 1)" [matMenuTriggerFor]="payout_2"
+                            title="STANDARD">
+                            STANDARD
                         </button>
                         <button mat-menu-item (mouseenter)="menuenters('EXTRA',2)" [matMenuTriggerFor]="payout_2"
                             title="EXTRA">
@@ -1027,7 +1030,7 @@
 
             <!-- Mis Dashboard -->
 
-            <!-- <mat-toolbar-row style="border: 1px solid #f4ebf4; margin:10px; height: 55px;">
+            <mat-toolbar-row style="border: 1px solid #f4ebf4; margin:10px; height: 55px;">
                 <div>
                     <button mat-icon-button [matMenuTriggerFor]="payoutList5" class="example-icon"
                         aria-label="Example icon-button with menu icon">
@@ -1041,7 +1044,7 @@
                         </ng-template>
                     </mat-menu> 
                 </div>
-            </mat-toolbar-row> -->
+            </mat-toolbar-row>
 
         </mat-toolbar>
 

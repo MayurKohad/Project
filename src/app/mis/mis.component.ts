@@ -8,38 +8,44 @@ import { Chart } from 'chart.js';
   styleUrls: ['./mis.component.scss']
 })
 export class MISComponent implements OnInit {
+  Daily: string= 'Daily';
+  Weekly: string= 'Weekly';
+  Monthly: string= 'Monthly';
   
   constructor( private router: Router) { }
   ngOnInit(): void {
   
-    var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-    var yValues = [55, 49, 44, 24, 55];
-    var barColors = ["red", "green","blue","orange","grey"];
-    
-    new Chart("myChart", {
-      type: "pie",
-      data: {
-        labels: xValues,
-        datasets: [{
-          backgroundColor: barColors,
-          data: yValues
-        }]
-      },
-      options: {
-        legend: {display: false},
-        title: {
-          display: true,
-          text: "World 2018"
-        }
-      }
-    });
-  
-  
+   
   }
 
 
-  mis_Modules(){
+  mis_Daily(){
     this.router.navigate(['Mis-Module']);
+    if(true){
+    localStorage.setItem('Daily', this.Daily);
+    // setTimeout(()=>{
+    //   localStorage.clear();
+    // },1000)
   }
-  
+}
+mis_Weekly(){
+  this.router.navigate(['Mis-Module']);
+    if(true){
+    localStorage.setItem('Weekly', this.Weekly);
+    // setTimeout(()=>{
+    //   localStorage.clear();
+    // },1000)
+  }
+}
+mis_Monthly(){
+  this.router.navigate(['Mis-Module']);
+    if(true){
+    localStorage.setItem('Monthly', this.Monthly);
+    // setTimeout(()=>{
+    //   localStorage.clear();
+    // },1000)
+  }
+}
+
+   
 }
