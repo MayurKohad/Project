@@ -1,8 +1,22 @@
-<div style="background-color: aliceblue; height: fit-content; ">
+<div style="background-color: aliceblue; height: fit-content; background-size: 100% 100%;">
     <div class="redirectPage">
-        <button mat-raised-button color="primary" [routerLink]="['/mis']" style="margin-top: 7px;">
+        <button mat-raised-button color="primary" (click)="  redirectPage() " style="margin-top: 7px;">
             Redirect to Module
         </button>
     </div>
-    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+    <div class="row" style="display: flex; width: 100%;">
+        <div class="col">
+            <h4>TOTAL :{{TOTAL}}</h4>
+            <h4>PASS :{{PASS}}</h4>
+            <h4>FAIL :{{FAIL}}</h4>
+        </div>
+        <div class="col">
+            <canvas id="barChartData"></canvas>
+        </div>
+        <div class="col">
+            <canvas id="pie-chart"></canvas>
+        </div>
+    </div>
+
 </div>

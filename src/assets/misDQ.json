@@ -1,0 +1,180 @@
+
+
+{
+    "response_code": 1,
+    "response_message": "Code executed successfully",
+    "response_text":[
+        
+         {
+            "REPORT_NAME":"DISCO CHARGES 1M",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "PASS": "20",
+          "FAIL": "HGSH",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          
+  
+          {
+            "REPORT_NAME":"DISCO CHARGES ULIP",
+          "REPORT_RUN_DATE": "31",
+          "EXTRACTION_DATE": "29",
+          "PASS": "30",
+          "FAIL": "0",
+          "QC_WIP": "31",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "2",
+          "AGEING_5_30_DAYS": "0",
+          "AGEING_30_DAYS":"6666"
+        },
+  
+          {
+            "REPORT_NAME":"ALLOCATION CHARGES",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "0",
+          "PASS": "40",
+          "FAIL": "7877",
+          "QC_WIP": "0",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "7788",
+          "AGEING_5_30_DAYS": "0",
+          "AGEING_30_DAYS":"6666"
+        },
+         {
+            "REPORT_NAME":"MORTALITY UNITIZATION",
+          "REPORT_RUN_DATE": "117",
+          "EXTRACTION_DATE": "112",
+          "PASS": "50",
+          "FAIL": "0",
+          "QC_WIP": "117",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "5",
+          "AGEING_5_30_DAYS": "0",
+          "AGEING_30_DAYS":"6666"
+        },
+      
+          {
+            "REPORT_NAME":"MORTALITY SKIPPED CASES",
+          "REPORT_RUN_DATE": "877",
+          "EXTRACTION_DATE": "0",
+          "PASS": "70",
+          "FAIL": "0",
+          "QC_WIP": "33",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "0",
+          "AGEING_30_DAYS":"6666"
+        },
+       
+        {
+            "REPORT_NAME": "ADMIN SKIPPED CASES" ,
+          "REPORT_RUN_DATE": "999",
+          "EXTRACTION_DATE": "0",
+          "PASS": "60",
+          "FAIL": "0",
+          "QC_WIP": "JJH",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "88AS",
+          "AGEING_30_DAYS":"6666"
+        },
+        {
+            "REPORT_NAME":"DISCO CHARGES 1M",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "PASS": "30",
+          "FAIL": "HGSH",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "REPORT_NAME":"DISCO CHARGES 1M",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "PASS": "20",
+          "FAIL": "HGSH",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "REPORT_NAME":"DISCO CHARGES 1M",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "PASS": "50",
+          "FAIL": "HGSH",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "REPORT_NAME":"DISCO CHARGES 1M",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "PASS": "80",
+          "FAIL": "HGSH",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "REPORT_NAME":"DISCO CHARGES 1M",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "PASS": "80",
+          "FAIL": "HGSH",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+
+          {
+            "REPORT_NAME":"DISCO CHARGES 1M",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "PASS": "50",
+          "FAIL": "HGSH",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          },
+          {
+            "REPORT_NAME":"DISCO CHARGES 1M",
+          "REPORT_RUN_DATE": "0",
+          "EXTRACTION_DATE": "HHN",
+          "PASS": "70",
+          "FAIL": "HGSH",
+          "QC_WIP": "000DDF",
+          "REPORT_EXTRACTION_STATUS": "Complete",
+          "AGEING_0_5_DAYS": "0",
+          "AGEING_5_30_DAYS": "AYTRT",
+          "AGEING_30_DAYS":"6666"
+          }
+      
+      
+    ]
+   
+  }
+  
+  
+      
+  
+  
+    

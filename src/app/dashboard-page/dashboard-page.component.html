@@ -1,5 +1,5 @@
 <div *ngIf="!showOverlay">
-    
+
     <div style="background-color: #3f51b5;">
         <mat-toolbar style="display: flex;flex-direction: row;">
 
@@ -92,35 +92,32 @@
                                 Policies Matured but Not in Due List </button>
                             <button mat-menu-item [matMenuTriggerFor]="DEPOSIT_PRESENT_BUT_NOT_ALLOCATED"
                                 title="Deposit Present but not allocated">Deposit Present but not allocated</button>
-                                <button mat-menu-item
+                            <button mat-menu-item
                                 (click)="menuenter('STATUS_NOT_LAPSED_AFTER_GRACE_PERIOD','Status Not Lapsed After Grace Period',0)"
-                                title="Status Not Lapsed After Grace Period">Status Not Lapsed After Grace Period </button>
-                                <button mat-menu-item
+                                title="Status Not Lapsed After Grace Period">Status Not Lapsed After Grace Period
+                            </button>
+                            <button mat-menu-item
                                 (click)="menuenter('LTR_NOT_PROCEED_AFTER_LOCK-IN-PERIOD','LTR Not Proceed After Lock-in-Period',0)"
-                                title="LTR Not Proceed After Lock-in-Period"> LTR Not Proceed After Lock-in-Period </button>
-                                <button mat-menu-item
-                                (click)="menuenter('SB_SKIPPED_CASES','SB Skipped Cases',0)"
+                                title="LTR Not Proceed After Lock-in-Period"> LTR Not Proceed After Lock-in-Period
+                            </button>
+                            <button mat-menu-item (click)="menuenter('SB_SKIPPED_CASES','SB Skipped Cases',0)"
                                 title="SB Skipped Cases">SB Skipped Cases</button>
-                                <button mat-menu-item [matMenuTriggerFor]="UNCLAIM_"
-                                title="Unclaim">Unclaimed Movement</button>
+                            <button mat-menu-item [matMenuTriggerFor]="UNCLAIM_" title="Unclaim">Unclaimed
+                                Movement</button>
                         </ng-template>
                     </mat-menu>
                     <mat-menu #UNCLAIM_>
                         <ng-template matMenuContent>
-                            <button mat-menu-item (click)="menuenter('UNCLAIM_',' Death',1)"
-                                title=" Death">
+                            <button mat-menu-item (click)="menuenter('UNCLAIM_',' Death',1)" title=" Death">
                                 Death </button>
-                                <button mat-menu-item (click)="menuenter('UNCLAIM_','Maturity',2)"
-                                title=" Maturity">
+                            <button mat-menu-item (click)="menuenter('UNCLAIM_','Maturity',2)" title=" Maturity">
                                 Maturity </button>
-                                <button mat-menu-item (click)="menuenter('UNCLAIM_','LTR',3)"
-                                title="LTR">
+                            <button mat-menu-item (click)="menuenter('UNCLAIM_','LTR',3)" title="LTR">
                                 LTR </button>
-                                <button mat-menu-item (click)="menuenter('UNCLAIM_',' Policy Deposit Refund',4)"
+                            <button mat-menu-item (click)="menuenter('UNCLAIM_',' Policy Deposit Refund',4)"
                                 title=" Policy Deposit Refund">
                                 Policy Deposit Refund </button>
-                                <button mat-menu-item (click)="menuenter('UNCLAIM_','SB',5)"
-                                title=" SB">
+                            <button mat-menu-item (click)="menuenter('UNCLAIM_','SB',5)" title=" SB">
                                 SB</button>
                         </ng-template>
                     </mat-menu>
@@ -139,6 +136,8 @@
                                 (click)="menuenter('ADDITIONAL_UNITIZATION_AT_THE_TIME_OF_REVIVAL','Addtional Unitization at the time of Revival',0)"
                                 title="Addtional Unitization at the time of Revival">
                                 Addtional Unitization at the time of Revival </button>
+                            <button mat-menu-item [matMenuTriggerFor]="UNCLAIM" title="unclaim">Unclaimed
+                                Movement</button>
                         </ng-template>
                     </mat-menu>
                     <mat-menu #Monthly="matMenu">
@@ -158,7 +157,7 @@
                             <button mat-menu-item [matMenuTriggerFor]="LTR_PROCESS_STATUS_CHANGES"
                                 title="LTR process - status changes">
                                 LTR process - status changes </button>
-                                <!-- <button mat-menu-item
+                            <!-- <button mat-menu-item
                                 (click)="menuenter('LTR_PROCESS_STATUS_CHANGES','LTR process - status changes',0)"
                                 title="LTR process - status changes">
                                 LTR process - status changes </button> -->
@@ -279,8 +278,7 @@
                                 title="Policy status moved back from Exit to Inforce">
                                 Policy status moved back from Exit to Inforce</button>
 
-                                <button mat-menu-item [matMenuTriggerFor]="UNCLAIM"
-                                title="unclaim">Unclaimed Movement</button>
+
                         </ng-template>
                     </mat-menu>
                     <!-- <mat-menu #Adhoc="matMenu">
@@ -289,22 +287,19 @@
 
                     </ng-template>
                 </mat-menu> -->
-                <mat-menu #UNCLAIM>
-                    <ng-template matMenuContent>
-                        <button mat-menu-item (click)="menuenter('UNCLAIM',' Death',1)"
-                            title=" Death">
-                            Death </button>
-                            <button mat-menu-item (click)="menuenter('UNCLAIM','Maturity',2)"
-                            title=" Maturity">
-                            Maturity </button>
-                            <button mat-menu-item (click)="menuenter('UNCLAIM','LTR',3)"
-                            title="LTR">
-                            LTR </button>
+                    <mat-menu #UNCLAIM>
+                        <ng-template matMenuContent>
+                            <button mat-menu-item (click)="menuenter('UNCLAIM',' Death',1)" title=" Death">
+                                Death </button>
+                            <button mat-menu-item (click)="menuenter('UNCLAIM','Maturity',2)" title=" Maturity">
+                                Maturity </button>
+                            <button mat-menu-item (click)="menuenter('UNCLAIM','LTR',3)" title="LTR">
+                                LTR </button>
                             <button mat-menu-item (click)="menuenter('UNCLAIM','Surrender ',4)"
-                            title=" Policy Deposit Refund">
-                            Surrender </button>
-                    </ng-template>
-                </mat-menu>
+                                title=" Policy Deposit Refund">
+                                Surrender </button>
+                        </ng-template>
+                    </mat-menu>
 
                     <mat-menu #CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT="matMenu">
                         <ng-template matMenuContent>
@@ -478,7 +473,7 @@
                                 (click)="menuenter('LTR_PROCESS_STATUS_CHANGES','LTR_PROCESS_STATUS_CHANGES- ULIP - After Lock Ln Period ', 3)"
                                 title="ULIP - After Lock Ln Period">
                                 ULIP - After Lock Ln Period </button>
-                            
+
                         </ng-template>
                     </mat-menu>
 
@@ -594,63 +589,62 @@
                             <!-- <button mat-menu-item (click)="menuenter('STATIC_FIELDS', 'Static fields',0)"
                                 title="Static fields"> Static fields
                             </button> -->
-                           
-                            <button mat-menu-item [matMenuTriggerFor]="static_feild"
-                                title="Static fields"> Static fields</button>
-                                <!-- <button mat-menu-item  (click)="menuenter('static_feild',' static feild',0)"
+
+                            <button mat-menu-item [matMenuTriggerFor]="static_feild" title="Static fields"> Static
+                                fields</button>
+                            <!-- <button mat-menu-item  (click)="menuenter('static_feild',' static feild',0)"
                                 title="Static fields"> Static fields</button> -->
 
-                            <button mat-menu-item [matMenuTriggerFor]="CRITICAL_FIELDS"
-                                title="Critical fields">
+                            <button mat-menu-item [matMenuTriggerFor]="CRITICAL_FIELDS" title="Critical fields">
                                 Critical fields </button>
 
-                                <!-- <button mat-menu-item (click)="menuenter('CRITICAL_FIELDS',' Critical fields',0)"
+                            <!-- <button mat-menu-item (click)="menuenter('CRITICAL_FIELDS',' Critical fields',0)"
                                 title="Critical fields">
                                 Critical fields </button> -->
-                                
-                                
 
-                            <button mat-menu-item  [matMenuTriggerFor]="BOUNDARY_CONDITION"
-                                title="Boundary Condition">
+
+
+                            <button mat-menu-item [matMenuTriggerFor]="BOUNDARY_CONDITION" title="Boundary Condition">
                                 Boundary Condition </button>
 
-                                <!-- <button mat-menu-item (click)="menuenter('BOUNDARY_CONDITION','Boundary Condition ',0)"
+                            <!-- <button mat-menu-item (click)="menuenter('BOUNDARY_CONDITION','Boundary Condition ',0)"
                                 title="Boundary Condition">
                                 Boundary Condition </button> -->
 
 
-                            <button mat-menu-item [matMenuTriggerFor]="PPA_CALCULATION"
-                                title="PPA Calculation">
+                            <button mat-menu-item [matMenuTriggerFor]="PPA_CALCULATION" title="PPA Calculation">
                                 PPA Calculation </button>
 
-                                <!-- <button mat-menu-item (click)="menuenter('PPA_CALCULATION','PPA Calculation',0)"
+                            <!-- <button mat-menu-item (click)="menuenter('PPA_CALCULATION','PPA Calculation',0)"
                                 title="PPA Calculation">
                                 PPA Calculation </button> -->
-                               
-                                <button mat-menu-item [matMenuTriggerFor]="CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION"
-                                title="CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION">CORRECTNESS OF INCREASING AND DECREASING SUM ASSURED BENEFIT</button>
 
-                                <button mat-menu-item [matMenuTriggerFor]="LTR_PROCESS_STATUS_CHANGE"
+                            <button mat-menu-item
+                                [matMenuTriggerFor]="CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION"
+                                title="CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION">CORRECTNESS
+                                OF INCREASING AND DECREASING SUM ASSURED BENEFIT</button>
+
+                            <button mat-menu-item [matMenuTriggerFor]="LTR_PROCESS_STATUS_CHANGE"
                                 title="LTR_PROCESS_STATUS_CHANGE">
                                 LTR PROCESS STATUS CHANGE </button>
 
-                                <!-- <button mat-menu-item (click)="menuenter('DUPLICATE_ENTRIES','Duplicate Entries',0)"
+                            <!-- <button mat-menu-item (click)="menuenter('DUPLICATE_ENTRIES','Duplicate Entries',0)"
                                 title="Duplicate Entries">
                                 Duplicate Entries </button> -->
 
-                                <button mat-menu-item [matMenuTriggerFor]="DUPLICATE_ENTRIES"
+                            <button mat-menu-item [matMenuTriggerFor]="DUPLICATE_ENTRIES"
                                 title="Duplicate Entries">Duplicate Entries
-                                 </button>
+                            </button>
 
-                                <!-- <button mat-menu-item (click)="menuenter('RIDER_INCONSISTENCY','Rider Inconsistency',0)"
+                            <!-- <button mat-menu-item (click)="menuenter('RIDER_INCONSISTENCY','Rider Inconsistency',0)"
                                 title="Rider Inconsistencys">
                                 Rider Inconsistency </button> -->
 
-                                <button mat-menu-item [matMenuTriggerFor]="RIDER_INCONSISTENCY"
-                                title="Rider Inconsistency">
+                            <button mat-menu-item [matMenuTriggerFor]="RIDER_INCONSISTENCY" title="Rider Inconsistency">
                                 Rider Inconsistency </button>
 
-                                <button mat-menu-item (click)="menuenteri('DOD_PRESENT_BUT_STATUS_NOT_DEATH','DOD Present But Status Not Death',0)"
+                            <button mat-menu-item
+                                (click)="menuenteri('DOD_PRESENT_BUT_STATUS_NOT_DEATH','DOD Present But Status Not Death',0)"
                                 title="DOD Present But Status Not Death">
                                 DOD Present But Status Not Death </button>
 
@@ -661,77 +655,73 @@
 
                     <mat-menu #DUPLICATE_ENTRIES="matMenu">
                         <ng-template matMenuContent>
-                            <button mat-menu-item
-                            (click)="menuenteri('DUPLICATE_ENTRIES','ULIP',1)" title="ULIP"> ULIP</button>
+                            <button mat-menu-item (click)="menuenteri('DUPLICATE_ENTRIES','ULIP',1)" title="ULIP">
+                                ULIP</button>
 
-                            <button mat-menu-item
-                            (click)="menuenteri('DUPLICATE_ENTRIES','NON_ULIP',2)" title="NON_ULIP">NON_ULIP</button>
+                            <button mat-menu-item (click)="menuenteri('DUPLICATE_ENTRIES','NON_ULIP',2)"
+                                title="NON_ULIP">NON_ULIP</button>
 
-                            <button mat-menu-item
-                            (click)="menuenteri('DUPLICATE_ENTRIES','1M',3)" title="1M">1M </button>
+                            <button mat-menu-item (click)="menuenteri('DUPLICATE_ENTRIES','1M',3)" title="1M">1M
+                            </button>
 
 
-                            <button mat-menu-item
-                            (click)="menuenteri('DUPLICATE_ENTRIES','1E',4)" title="1E">1E </button>
+                            <button mat-menu-item (click)="menuenteri('DUPLICATE_ENTRIES','1E',4)" title="1E">1E
+                            </button>
 
-                            <button mat-menu-item 
-                            (click)="menuenteri('DUPLICATE_ENTRIES','56',5)" title="56">56 </button>
+                            <button mat-menu-item (click)="menuenteri('DUPLICATE_ENTRIES','56',5)" title="56">56
+                            </button>
 
-                            <button mat-menu-item 
-                            (click)="menuenteri('DUPLICATE_ENTRIES','36',6)" title="36">36 </button>
+                            <button mat-menu-item (click)="menuenteri('DUPLICATE_ENTRIES','36',6)" title="36">36
+                            </button>
 
-                            <button mat-menu-item 
-                            (click)="menuenteri('DUPLICATE_ENTRIES','Annuity',7)" title="Annuity">Annuity </button>
+                            <button mat-menu-item (click)="menuenteri('DUPLICATE_ENTRIES','Annuity',7)"
+                                title="Annuity">Annuity </button>
                         </ng-template>
                     </mat-menu>
 
                     <mat-menu #RIDER_INCONSISTENCY="matMenu">
                         <ng-template matMenuContent>
-                            <button mat-menu-item
-                            (click)="menuenteri('RIDER_INCONSISTENCY','ULIP',1)" title="ULIP"> ULIP</button>
+                            <button mat-menu-item (click)="menuenteri('RIDER_INCONSISTENCY','ULIP',1)" title="ULIP">
+                                ULIP</button>
 
-                            <button mat-menu-item
-                            (click)="menuenteri('RIDER_INCONSISTENCY','NON_ULIP',2)" title="NON_ULIP">NON_ULIP</button>
-                            
+                            <button mat-menu-item (click)="menuenteri('RIDER_INCONSISTENCY','NON_ULIP',2)"
+                                title="NON_ULIP">NON_ULIP</button>
+
 
                         </ng-template>
                     </mat-menu>
 
                     <mat-menu #LTR_PROCESS_STATUS_CHANGE="matMenu">
                         <ng-template matMenuContent>
-                            <button mat-menu-item
-                            (click)="menuenteri('LTR_PROCESS_STATUS_CHANGE','ULIP-18,19,21',1)" title="ULIP-18,19,21"> ULIP-18,19,21
-                        </button>
+                            <button mat-menu-item (click)="menuenteri('LTR_PROCESS_STATUS_CHANGE','ULIP-18,19,21',1)"
+                                title="ULIP-18,19,21"> ULIP-18,19,21
+                            </button>
 
                         </ng-template>
                     </mat-menu>
 
                     <mat-menu #PPA_CALCULATION="matMenu">
                         <ng-template matMenuContent>
-                            <button mat-menu-item
-                            (click)="menuenteri('PPA_CALCULATION','1M',1)" title="1M"> 1M</button>
+                            <button mat-menu-item (click)="menuenteri('PPA_CALCULATION','1M',1)" title="1M"> 1M</button>
 
-                            <button mat-menu-item
-                            (click)="menuenteri('PPA_CALCULATION','56',2)" title="56">56</button>
+                            <button mat-menu-item (click)="menuenteri('PPA_CALCULATION','56',2)" title="56">56</button>
 
-                            <button mat-menu-item
-                            (click)="menuenteri('PPA_CALCULATION','36',1)" title="36"> 36</button>
+                            <button mat-menu-item (click)="menuenteri('PPA_CALCULATION','36',1)" title="36"> 36</button>
 
-                            <button mat-menu-item
-                            (click)="menuenteri('PPA_CALCULATION','7',2)" title="7">7</button>
-                            
+                            <button mat-menu-item (click)="menuenteri('PPA_CALCULATION','7',2)" title="7">7</button>
+
 
                         </ng-template>
                     </mat-menu>
 
                     <mat-menu #BOUNDARY_CONDITION="matMenu">
                         <ng-template matMenuContent>
-                            <button mat-menu-item
-                            (click)="menuenteri('BOUNDARY_CONDITION','ULIP',1)" title="ULIP"> ULIP</button>
+                            <button mat-menu-item (click)="menuenteri('BOUNDARY_CONDITION','ULIP',1)" title="ULIP">
+                                ULIP</button>
 
-                            <button mat-menu-item
-                            (click)="menuenteri('BOUNDARY_CONDITION','NON_ULIP',2)" title="NON_ULIP">NON_ULIP</button>
-                            
+                            <button mat-menu-item (click)="menuenteri('BOUNDARY_CONDITION','NON_ULIP',2)"
+                                title="NON_ULIP">NON_ULIP</button>
+
 
                         </ng-template>
                     </mat-menu>
@@ -739,45 +729,39 @@
 
                     <mat-menu #CRITICAL_FIELDS="matMenu">
                         <ng-template matMenuContent>
-                            <button mat-menu-item
-                            (click)="menuenteri('CRITICAL_FIELDS','ULIP',1)" title="ULIP"> ULIP</button>
+                            <button mat-menu-item (click)="menuenteri('CRITICAL_FIELDS','ULIP',1)" title="ULIP">
+                                ULIP</button>
 
-                            <button mat-menu-item
-                            (click)="menuenteri('CRITICAL_FIELDS','NON_ULIP',2)" title="NON_ULIP">NON_ULIP</button>
+                            <button mat-menu-item (click)="menuenteri('CRITICAL_FIELDS','NON_ULIP',2)"
+                                title="NON_ULIP">NON_ULIP</button>
 
-                            <button mat-menu-item
-                            (click)="menuenteri('CRITICAL_FIELDS','1M',3)" title="1M">1M </button>
+                            <button mat-menu-item (click)="menuenteri('CRITICAL_FIELDS','1M',3)" title="1M">1M </button>
 
 
-                            <button mat-menu-item
-                            (click)="menuenteri('CRITICAL_FIELDS','1E',4)" title="1E">1E </button>
+                            <button mat-menu-item (click)="menuenteri('CRITICAL_FIELDS','1E',4)" title="1E">1E </button>
 
-                            <button mat-menu-item 
-                            (click)="menuenteri('CRITICAL_FIELDS','56',5)" title="56">56 </button>
+                            <button mat-menu-item (click)="menuenteri('CRITICAL_FIELDS','56',5)" title="56">56 </button>
 
                         </ng-template>
                     </mat-menu>
 
                     <mat-menu #static_feild="matMenu">
                         <ng-template matMenuContent>
-                            <button mat-menu-item
-                            (click)="menuenteri('STATIC_FIELDS','ULIP',1)" title="ULIP"> ULIP</button>
+                            <button mat-menu-item (click)="menuenteri('STATIC_FIELDS','ULIP',1)" title="ULIP">
+                                ULIP</button>
 
-                            <button mat-menu-item
-                            (click)="menuenteri('STATIC_FIELDS','NON_ULIP',2)" title="NON_ULIP">NON_ULIP</button>
+                            <button mat-menu-item (click)="menuenteri('STATIC_FIELDS','NON_ULIP',2)"
+                                title="NON_ULIP">NON_ULIP</button>
 
-                            <button mat-menu-item
-                            (click)="menuenteri('STATIC_FIELDS','1M',3)" title="1M">1M </button>
+                            <button mat-menu-item (click)="menuenteri('STATIC_FIELDS','1M',3)" title="1M">1M </button>
 
 
-                            <button mat-menu-item
-                            (click)="menuenteri('STATIC_FIELDS','1E',4)" title="1E">1E </button>
+                            <button mat-menu-item (click)="menuenteri('STATIC_FIELDS','1E',4)" title="1E">1E </button>
 
-                            <button mat-menu-item 
-                            (click)="menuenteri('STATIC_FIELDS','56',5)" title="56">56 </button>
+                            <button mat-menu-item (click)="menuenteri('STATIC_FIELDS','56',5)" title="56">56 </button>
 
-                            <button mat-menu-item 
-                            (click)="menuenteri('STATIC_FIELDS','Annuity',6)" title="Annuity">Annuity </button>
+                            <button mat-menu-item (click)="menuenteri('STATIC_FIELDS','Annuity',6)"
+                                title="Annuity">Annuity </button>
                         </ng-template>
                     </mat-menu>
 
@@ -789,7 +773,7 @@
                             <button mat-menu-item
                                 (click)="menuenteri('CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION','correctness of increasing and decreasing sum assured benefit valuation - PAID-UP_INDIGO',2)"
                                 title="PAID-UP_INDIGO">PAID-UP_INDIGO</button>
-                                <button mat-menu-item
+                            <button mat-menu-item
                                 (click)="menuenteri('CORRECTNESS_OF_INCREASING_AND_DECREASING_SUM_ASSURED_BENEFIT_VALUATION','correctness of increasing and decreasing sum assured benefit valuation - ULIP_INDIGO',3)"
                                 title="ULIP_INDIGO">ULIP_INDIGO</button>
                         </ng-template>
@@ -874,15 +858,16 @@
                                 [matMenuTriggerFor]="DEPOSITE_PRESENT_BUT_NOT_ALLOCATED"> DEPOSITE PRESENT BUT NOT
                                 ALLOCATED
                             </button>
-                            <button mat-menu-item (mouseenter)="menuenters('MORTALITY_CHARGE')" title=" MORTALITY CHARGE"
-                                [matMenuTriggerFor]="MORTALITY_CHARGE"> MORTALITY CHARGE </button>
+                            <button mat-menu-item (mouseenter)="menuenters('MORTALITY_CHARGE')"
+                                title=" MORTALITY CHARGE" [matMenuTriggerFor]="MORTALITY_CHARGE"> MORTALITY CHARGE
+                            </button>
                             <button mat-menu-item (mouseenter)="menuenters('STATUS_NOT_LAPSED_AFTER_GRACE_PERIOD')"
                                 title="STATUS NOT LAPSED AFTER GRACE PERIOD" [matMenuTriggerFor]="payout_2">
                                 STATUS NOT LAPSED AFTER GRACE PERIOD </button>
                             <!-- <button mat-menu-item (mouseenter)="menuenters('LTR_NOT_PROCESSED_AFTER_LOCK-IN_PERIOD')"
                                 title=" LTR NOT PROCESSED AFTER LOCK-IN PERIOD" [matMenuTriggerFor]="payout_2">
                                 LTR NOT PROCESSED AFTER LOCK-IN PERIOD </button> -->
-                                <button mat-menu-item (mouseenter)="menuenters('SB_Skipped_Cases')" title="SB Skipped Cases"
+                            <button mat-menu-item (mouseenter)="menuenters('SB_Skipped_Cases')" title="SB Skipped Cases"
                                 [matMenuTriggerFor]="payout_2">SB SKIPPED CASE</button>
                             <!-- <button mat-menu-item (mouseenter)="menuenters('DISCO_CHARGES')"
                             [matMenuTriggerFor]="Status_not_lapsed_after_grace_period">STATUS NOT LAPSED AFTER GRACE PERIOD  </button>
@@ -891,28 +876,28 @@
 
                             <!-- <button mat-menu-item [matMenuTriggerFor]="_UNCLAIM_"
                                 title="unclaim">Unclaim</button> -->
-                                <button mat-menu-item (mouseenter)="menuenters('_UNCLAIM_')" title="UNCLAIM"
+                            <button mat-menu-item (mouseenter)="menuenters('_UNCLAIM_')" title="UNCLAIM"
                                 [matMenuTriggerFor]="_UNCLAIM_"> UNCLAIMED MOVEMENT </button>
 
                         </ng-template>
                     </mat-menu>
                 </div>
 
-                <mat-menu #_UNCLAIM_ = "matMenu">
+                <mat-menu #_UNCLAIM_="matMenu">
                     <ng-template matMenuContent>
                         <button mat-menu-item (mouseenter)="menuenters('Death',1)" [matMenuTriggerFor]="payout_2"
                             title=" Death">
                             Death </button>
-                            <button mat-menu-item (mouseenter)="menuenters('Maturity',2)" [matMenuTriggerFor]="payout_2"
+                        <button mat-menu-item (mouseenter)="menuenters('Maturity',2)" [matMenuTriggerFor]="payout_2"
                             title=" Maturity">
                             Maturity </button>
-                            <button mat-menu-item (mouseenter)="menuenters('LTR',3)" [matMenuTriggerFor]="payout_2"
+                        <button mat-menu-item (mouseenter)="menuenters('LTR',3)" [matMenuTriggerFor]="payout_2"
                             title="LTR">
                             LTR </button>
-                            <button mat-menu-item (mouseenter)="menuenters('Policy_Deposit_Refund',4)" [matMenuTriggerFor]="payout_2"
-                            title=" Policy Deposit Refund">
+                        <button mat-menu-item (mouseenter)="menuenters('Policy_Deposit_Refund',4)"
+                            [matMenuTriggerFor]="payout_2" title=" Policy Deposit Refund">
                             Policy Deposit Refund </button>
-                            <button mat-menu-item (mouseenter)="menuenters('SB',5)" [matMenuTriggerFor]="payout_2"
+                        <button mat-menu-item (mouseenter)="menuenters('SB',5)" [matMenuTriggerFor]="payout_2"
                             title=" SB">
                             SB </button>
                     </ng-template>
@@ -1040,9 +1025,9 @@
                     <mat-menu #payoutList5="matMenu">
                         <ng-template matMenuContent>
                             <button mat-menu-item (click)="showMISWindow()" title="MIS Dashboard">MIS Dashboard</button>
-                            
+
                         </ng-template>
-                    </mat-menu> 
+                    </mat-menu>
                 </div>
             </mat-toolbar-row>
 
