@@ -4,7 +4,7 @@
 
 "Data": ["PASS", "FAIL"],
 "Pie" :[{ "data" : [70, 30]}],
-"TOTAL": 10000,
+"TOTAL": 999,
 "PASS" : 70,
 "FAIL" :60
 }
