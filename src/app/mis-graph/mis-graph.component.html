@@ -4,19 +4,32 @@
             Redirect to Module
         </button>
     </div>
-
-    <div class="row" style="display: flex; width: 100%;">
+<div >
+    <div class="row" style="display: flex; width: 100%; margin-top: 10px; text-align: center; ">
         <div class="col">
+            <h4 style="color: blue;">MODULE : {{module}}</h4>
             <h4>TOTAL :{{TOTAL}}</h4>
             <h4>PASS :{{PASS}}</h4>
             <h4>FAIL :{{FAIL}}</h4>
         </div>
         <div class="col">
-            <canvas id="barChartData"></canvas>
+            <div style="margin-top: 5px;">
+                <canvas id="barChartData"></canvas>
+                <p>{{module}}</p>
+            </div>
+
         </div>
         <div class="col">
-            <canvas id="pie-chart"></canvas>
+            <div style="height: 190px;">
+                <canvas id="pie-chart"></canvas>
+                <p>{{module}}</p>
+            </div>
         </div>
     </div>
+</div>
+<div class="row" style="margin: 10px 10px 10px -10px;">
+    <div class="col last"></div>
+    <div class="col last"></div>
+</div>
 
 </div>

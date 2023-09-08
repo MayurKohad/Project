@@ -1,10 +1,9 @@
 {
-"categories": ["Category 1"],
-"series": [{"name": "PASS", "data": [10]}, {"name": "FAIL", "data": [20]}],
-
+"Module": "DISCO CHARGES",
 "Data": ["PASS", "FAIL"],
 "Pie" :[{ "data" : [70, 30]}],
 "TOTAL": 100,
 "PASS" : 70,
-"FAIL" :60
+"FAIL" :30
 }
+

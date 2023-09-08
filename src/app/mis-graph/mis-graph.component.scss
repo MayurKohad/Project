@@ -6,12 +6,26 @@
 
 .col{
     margin-left: 25px;
-    height: 229px;
+    height: 215px;
     box-shadow: rgba(0,0,0,0.5) 0px 5px 15px;
     border-radius: 15px;
     background-color: #fff;
     transition: .1s transform cubic-bezier(.155,1.105,.295,1.12),.1s box-shadow,.1s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
     cursor: pointer;
     border-width: 2px;
-    border-color: rgb(159, 125, 190);;
+    border-color: rgb(159, 125, 190);
   }
+
+  .last{
+    margin-left: 25px;
+    height: 250px;
+    box-shadow: rgba(0,0,0,0.5) 0px 5px 15px;
+    border-radius: 15px;
+    background-color: #fff;
+    transition: .1s transform cubic-bezier(.155,1.105,.295,1.12),.1s box-shadow,.1s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    cursor: pointer;
+    border-width: 2px;
+    border-color: rgb(159, 125, 190);
+  }
+
+  

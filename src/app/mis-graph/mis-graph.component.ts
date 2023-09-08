@@ -22,6 +22,7 @@ export class MisGraphComponent implements OnInit {
   week: string = 'Weekly1';
   Chart: any;
   data: any;
+  module: any;
   TOTAL : any; 
   PASS : any;
   FAIL : any;
@@ -61,14 +62,12 @@ export class MisGraphComponent implements OnInit {
 
 
   drawStackedBarChart() {
-    const categories = this.chartData.categories;
-    const series = this.chartData.series;
+    const Data = this.chartData.Data;
+    const Pie = this.chartData.Pie;
     this.TOTAL= this.chartData.TOTAL;
     this.PASS= this.chartData.PASS;
     this.FAIL= this.chartData.FAIL;
-
-    const PASS = this.chartData.series[0].backgroundColor = 'lightblue';
-    const FAIL = this.chartData.series[1].backgroundColor = 'lightpink';
+    this.module = this.chartData.Module;
 
     const ctx = document.getElementById('barChartData') as HTMLCanvasElement;
     this.chart = new Chart(ctx, {
@@ -76,17 +75,20 @@ export class MisGraphComponent implements OnInit {
       type: 'bar',
 
       data: {
-        labels: categories,
-        datasets: series.map((s) => ({
+        labels: Data,
+        datasets: Pie.map((s) => ({
           label: s.name,
           data: s.data,
-          backgroundColor: s.backgroundColor
+          backgroundColor: ['lightblue', 'lightpink']
 
         }),
         )
       },
 
       options: {
+        legend: {
+          display: false
+        },
         scales: {
           xAxes: [{
             stacked: true,
