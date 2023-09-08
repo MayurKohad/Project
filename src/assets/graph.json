@@ -1,26 +1,9 @@
 {
-    "Module": "DISCO CHARGES",
-    "Data": [
-        "PASS",
-        "FAIL"
-    ],
-    "Pie": [
-        {
-            "data": [
-                70,
-                30
-            ]
-        }
-    ],
-    "TOTAL": 100,
-    "PASS": 70,
-    "FAIL": 30,
-
-            "Sub_moduleName": ["1m","2m","3m","4m","5m","6m","7m","8m"],
-            
-                "pass" : [65,70,49,80,55,80,91,82],
-                "fail" : [35, 30,61,40,45,20,7,18]
-       
-            
-
+"Module": "DISCO CHARGES",
+"Data": ["PASS", "FAIL"],
+"Pie" :[{ "data" : [70, 30]}],
+"TOTAL": 100,
+"PASS" : 70,
+"FAIL" :30
 }
+
