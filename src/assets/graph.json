@@ -2,7 +2,7 @@
 "Module": "DISCO CHARGES",
 "Data": ["PASS", "FAIL"],
 "Pie" :[{ "data" : [70, 30]}],
-"TOTAL": 100,
+"TOTAL": 1000,
 "PASS" : 70,
 "FAIL" :30
 }
