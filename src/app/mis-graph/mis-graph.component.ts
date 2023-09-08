@@ -56,6 +56,7 @@ export class MisGraphComponent implements OnInit {
       this.chartData = data;
       this.drawStackedBarChart();
       this.drawPieChart();
+      this.drawModuleWise();
     });
 
   }
@@ -77,7 +78,6 @@ export class MisGraphComponent implements OnInit {
       data: {
         labels: Data,
         datasets: Pie.map((s) => ({
-          label: s.name,
           data: s.data,
           backgroundColor: ['lightblue', 'lightpink']
 
@@ -125,6 +125,52 @@ export class MisGraphComponent implements OnInit {
         maintainAspectRatio: false, 
       }
     });
+  }
+
+  drawModuleWise(){
+    const moduleName = this.chartData.Sub_moduleName;
+    const sub_data = this.chartData.sub_data;
+    const pass = this.chartData.pass;
+    const fail = this.chartData.fail;
+
+    const ctx = document.getElementById('myChart') as HTMLCanvasElement;
+    this.chart = new Chart(ctx, {
+
+      type: 'bar',
+
+      data: {
+        labels: moduleName,
+        datasets: [{
+          data: pass,
+          backgroundColor: 'lightblue'
+        },
+        {
+          data: fail,
+          backgroundColor: 'lightpink',
+        }
+      ]
+      },
+
+      options: {
+        legend: {
+          display: true
+        },
+        scales: {
+          xAxes: [{
+            stacked: true,
+
+          }],
+          yAxes: [{
+            stacked: true,
+          }],
+        },
+        responsive: true, 
+        maintainAspectRatio: false, 
+      },
+
+    });
+    
+
   }
 
 
