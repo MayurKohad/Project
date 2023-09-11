@@ -78,6 +78,7 @@ export class MisGraphComponent implements OnInit {
       data: {
         labels: Data,
         datasets: Pie.map((s) => ({
+          label: s.name,
           data: s.data,
           backgroundColor: ['lightblue', 'lightpink']
 
@@ -115,8 +116,6 @@ export class MisGraphComponent implements OnInit {
         datasets: Pie.map((s) => ({
           data: s.data,
           backgroundColor: ["lightblue", "lightpink"],
-         
-
         }),
         )
       },
@@ -129,22 +128,23 @@ export class MisGraphComponent implements OnInit {
 
   drawModuleWise(){
     const moduleName = this.chartData.Sub_moduleName;
-    const sub_data = this.chartData.sub_data;
     const pass = this.chartData.pass;
     const fail = this.chartData.fail;
+    const Data = this.chartData.Data;
 
     const ctx = document.getElementById('myChart') as HTMLCanvasElement;
     this.chart = new Chart(ctx, {
-
       type: 'bar',
 
       data: {
         labels: moduleName,
         datasets: [{
+          label:Data[0],
           data: pass,
           backgroundColor: 'lightblue'
         },
         {
+          label:Data[1],
           data: fail,
           backgroundColor: 'lightpink',
         }
@@ -158,7 +158,6 @@ export class MisGraphComponent implements OnInit {
         scales: {
           xAxes: [{
             stacked: true,
-
           }],
           yAxes: [{
             stacked: true,
