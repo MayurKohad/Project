@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import * as Chart from 'chart.js';
 import { DataQualityMisService } from '../Service/data-quality-mis.service';
 import { HttpClient } from '@angular/common/http';
+import { MatDatepickerInputEvent } from '@angular/material';
+import { formatDate } from '@angular/common';
+
 
 @Component({
   selector: 'app-mis-graph',
@@ -57,6 +60,8 @@ export class MisGraphComponent implements OnInit {
       this.drawStackedBarChart();
       this.drawPieChart();
       this.drawModuleWise();
+      this.drawPerticularSubModule();
+      this.selectModule();
     });
 
   }
@@ -169,7 +174,79 @@ export class MisGraphComponent implements OnInit {
 
     });
     
+  }
 
+  drawPerticularSubModule(){
+    const moduleName = this.chartData.Sub_moduleName;
+    const pass = this.chartData.pass;
+    const fail = this.chartData.fail;
+    const Data = this.chartData.Data;
+    const ctx = document.getElementById('chart') as HTMLCanvasElement;
+    this.chart = new Chart(ctx, {
+      type: 'bar',
+
+      data: {
+        labels: moduleName,
+        datasets: [{
+          label:Data[0],
+          data: pass,
+          backgroundColor: 'lightblue'
+        },
+        {
+          label:Data[1],
+          data: fail,
+          backgroundColor: 'lightpink',
+        }
+      ]
+      },
+
+      options: {
+        legend: {
+          display: true
+        },
+        scales: {
+          xAxes: [{
+            stacked: true,
+          }],
+          yAxes: [{
+            stacked: true,
+          }],
+        },
+        responsive: true, 
+        maintainAspectRatio: false, 
+      },
+
+    });
+    
+  }
+
+  // for date selection
+  startDate:any;
+  addStartDate(event: MatDatepickerInputEvent<Date>) {
+    this.startDate=`${event.value}`;
+    this.startDate = formatDate(this.startDate, "dd/MM/yyyy", "en");
+     console.log('addStartDate >>',this.startDate);
+  }
+// drop down for select module
+  
+
+  textTypes :any;
+  selectModule(){
+    const moduleName = this.chartData.Sub_moduleName;
+    this.textTypes = 
+    [
+      {value : 'Select Module'},
+      { value : 'value1' },
+      { value : 'value2' },
+      { value : 'value3' },
+      { value : 'value4' },
+  
+    ]
+  }
+  
+  handleChange(index) {
+    console.log(this.textTypes[index]);
+    // this.selectedObject = this.textTypes[index];
   }
 
 
