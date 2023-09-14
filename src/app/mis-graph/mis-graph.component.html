@@ -1,35 +1,60 @@
 <div style="background-color: aliceblue; height: fit-content; background-size: 100% 100%;">
-    <div class="redirectPage">
-        <button mat-raised-button color="primary" (click)="  redirectPage() " style="margin-top: 7px;">
-            Redirect to Module
-        </button>
-    </div>
-<div >
-    <div class="row" style="display: flex; width: 100%; margin-top: 10px; text-align: center; ">
-        <div class="col">
-            <h4 style="color: blue;">MODULE : {{module}}</h4>
-            <h4>TOTAL :{{TOTAL}}</h4>
-            <h4>PASS :{{PASS}}</h4>
-            <h4>FAIL :{{FAIL}}</h4>
-        </div>
-        <div class="col">
-            <div style="margin-top: 5px;">
-                <canvas id="barChartData"></canvas>
-                <p>{{module}}</p>
+    <div>
+
+        <div class="redirectPage">
+            <div>
+                <mat-form-field>
+                    <mat-select >
+                        <input [(ngModel)]="searchText" placeholder="search text goes here" >
+                        <mat-option *ngFor="let element of Data | mispipe:searchText" [value]="element" >
+                            {{element}}
+                        </mat-option>
+    
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="mar">
+                <button mat-raised-button color="primary" (click)="  redirectPage() " style="margin-top: 7px;">
+                    Redirect to Module
+                </button>
             </div>
 
         </div>
-        <div class="col">
-            <div style="height: 190px;">
-                <canvas id="pie-chart"></canvas>
-                <p>{{module}}</p>
+
+        <div>
+            <div class="row" style="display: flex; width: 100%; margin-top: 10px; text-align: center; ">
+                <div class="col">
+                    <h4> ModuleName : <span style="color: blue;">{{module}}</span></h4>
+                    <div>
+                        <h5>Total :{{TOTAL}}</h5>
+                        <h5>Pass :{{PASS}}</h5>
+                        <h5>Fail :{{FAIL}}</h5>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div style="margin-top: 5px;">
+                        <canvas id="barChartData"></canvas>
+                        <p>{{module}}</p>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div style="height: 190px;">
+                        <canvas id="pie-chart"></canvas>
+                        <p>{{module}}</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="row" style="margin: 10px 10px 10px -10px;">
-    <div class="col last"></div>
-    <div class="col last"></div>
-</div>
+        <div class="row">
+            <div class="col-5">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="col-5">
+                <canvas id="chart"></canvas>
+            </div>
 
-</div>
+        </div>
+
+    </div>

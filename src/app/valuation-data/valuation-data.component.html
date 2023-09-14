@@ -9,7 +9,7 @@
     <div>
         <!-- <h2 class="mat-h2">Dashboard</h2> -->
         <div class="redirectPage">
-            <button mat-raised-button color="primary" [routerLink]="['/dashboard-page/']">
+            <button mat-raised-button color="primary" [routerLink]="['/main-valuation/']">
                 Redirect to dashboard page
             </button>
         </div>
@@ -87,7 +87,6 @@
             </div>
         </div>
         
-
 
         <div *ngIf="displayMessage" style="padding: 30%; padding-top: 50px;padding-bottom: 0;position: absolute; margin-top: -170px;">
             <div class="customAlert" [ngClass]="(isError==true)?'errorbgcolor':'messagebgcolor'" style="
