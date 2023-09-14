@@ -3,7 +3,8 @@
 
         <div class="redirectPage">
             <div>
-                <mat-form-field>
+                <mat-form-field >
+                    <!-- <label>Case state</label> -->
                     <mat-select >
                         <input [(ngModel)]="searchText" placeholder="search text goes here" >
                         <mat-option *ngFor="let element of Data | mispipe:searchText" [value]="element" >
