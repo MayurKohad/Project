@@ -1,10 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import * as Chart from 'chart.js';
 import { DataQualityMisService } from '../Service/data-quality-mis.service';
 import { HttpClient } from '@angular/common/http';
 import { MatDatepickerInputEvent } from '@angular/material';
 import { formatDate } from '@angular/common';
+
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+
+
 
 
 @Component({
@@ -14,6 +20,9 @@ import { formatDate } from '@angular/common';
 })
 export class MisGraphComponent implements OnInit {
 
+  myControl = new FormControl();
+  options: string[] = ['FAIL', 'PASS'];
+  
 
   Weekly: boolean;
   Daily: boolean;
@@ -44,6 +53,16 @@ export class MisGraphComponent implements OnInit {
     this.report_name = localStorage.getItem('data');
     console.log(" this.report_name", this.report_name);
 
+
+    // dynamic dropdown
+    this.countryCtrl = new FormControl();
+    this.filteredCountry = this.countryCtrl.valueChanges.pipe(
+      startWith(''),
+      map((country) =>
+        country ? this.filtercountry(country) : this.country_lis.slice()
+      )
+    );
+// dynamic dropdown
   }
 
   chart: any = null;
@@ -53,8 +72,12 @@ export class MisGraphComponent implements OnInit {
   ngOnInit(): void {
 
     // Fetch JSON data
-    this.http.get('../../assets/graph.json').subscribe((data) => {
+    this.http.get('../../assets/graph.json').subscribe((data:any) => {
       console.log('data..', data);
+      console.log('...',data.mayur);
+      // this.filter=data.mayur;
+      // console.log(" this.filteredCountry", this.filteredCountry);
+      
 
       this.chartData = data;
       this.drawStackedBarChart();
@@ -62,10 +85,20 @@ export class MisGraphComponent implements OnInit {
       this.drawModuleWise();
       this.drawPerticularSubModule();
       this.selectModule();
+
     });
 
   }
 
+//   search(){
+//     this.http.get('../../assets/searchgraph.json').subscribe((search:any) => {
+// console.log("search",search);
+// console.log('mayur',search.mayur);
+
+
+//     })
+//   }
+  
 
   drawStackedBarChart() {
     const Data = this.chartData.Data;
@@ -104,6 +137,8 @@ export class MisGraphComponent implements OnInit {
             stacked: true,
           }],
         },
+        responsive: true, 
+        maintainAspectRatio: false, 
       },
 
     });
@@ -221,33 +256,47 @@ export class MisGraphComponent implements OnInit {
   }
 
   // for date selection
-  startDate:any;
-  addStartDate(event: MatDatepickerInputEvent<Date>) {
-    this.startDate=`${event.value}`;
-    this.startDate = formatDate(this.startDate, "dd/MM/yyyy", "en");
-     console.log('addStartDate >>',this.startDate);
+  dateSelect:any;
+  monthSelect:any;
+  dateSelection(event: MatDatepickerInputEvent<Date>) {
+    this.dateSelect=`${event.value}`;
+    this.dateSelect = formatDate(this.dateSelect, "dd/MM/yyyy", "en");
+     console.log('dateSelect >>',this.dateSelect);
+  }
+ 
+// for date selection
+    monthSelection(event: MatDatepickerInputEvent<Date>) {
+    this.monthSelect=`${event.value}`;
+    this.monthSelect = formatDate(this.monthSelect, "MM/yyyy", "en");
+     console.log('monthSelect >>',this.monthSelect);
+  }
+// for date selection
+  
+// drop down for select module
+  textTypes :any;
+  textType :any;
+  selectedObject:any;
+  selectModule(){
+    const moduleName = this.chartData.DropdownForSelectProduct;
+    const Data = this.chartData.Dropdown;
+    this.textTypes =  moduleName;
+    this.textType =  Data;
+  }
+  handleChange(index) {
+    this.selectedObject = this.textTypes[index];
+    console.log(this.selectedObject);
+  }
+  passFailActivity(index){
+    let Obj = {
+      module : this.chartData.Module,
+      value : this.textType[index]
+    }
+    console.log(Obj);
+    this.mis.misdaily(Obj).subscribe(res => {
+    })
+    
   }
 // drop down for select module
-  
-
-  textTypes :any;
-  selectModule(){
-    const moduleName = this.chartData.Sub_moduleName;
-    this.textTypes = 
-    [
-      {value : 'Select Module'},
-      { value : 'value1' },
-      { value : 'value2' },
-      { value : 'value3' },
-      { value : 'value4' },
-  
-    ]
-  }
-  
-  handleChange(index) {
-    console.log(this.textTypes[index]);
-    // this.selectedObject = this.textTypes[index];
-  }
 
 
 
@@ -260,5 +309,35 @@ export class MisGraphComponent implements OnInit {
     this.router.navigate(['/Mis-Module'])
 
   }
+
+  
+  length: number;
+
+  countryCtrl: FormControl;
+  filteredCountry: Observable<any[]>;
+  
+  country_lis: Country[] =
+  [
+    { "name": "Afghanistan" },
+    { "name": "Åland Islands" },
+    { "name": "Albania" },
+    { "name": "Algeria" }
+  ];
+arr:any;
+  filtercountry(name: string) {
+  this.arr = this.country_lis. filter(
+      (country) => country.name.toLowerCase().indexOf(name.toLowerCase()) === 0
+    );
+console.log(this.arr, "mayur")
+    return this.arr.length ? this.arr : [{ name: 'No Item found' }];
+  }
+
+
+  
+  
+
 }
 
+export class Country {
+  constructor(public name: string) {}
+}

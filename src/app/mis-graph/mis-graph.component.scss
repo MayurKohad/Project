@@ -3,11 +3,25 @@
     // margin-right: 30px;
     display: flex;
     height: 50px;
+
     
 }
 
-.mar{
-  margin-left: 20px;
+.card{
+  margin-left: 45px;
+  border-width: 1px;
+  margin-top: 4px;
+  border-color: rgb(46, 46, 46);
+  box-shadow: rgba(0,0,0,0.3) 0px 5px 10px;
+  
+}
+.mayur{
+  margin-left: 45px;
+  border-width: 1px;
+  margin-top: 4px;
+  border-color: black;
+  border-bottom: none;
+  box-shadow: rgba(0,0,0,0.3) 0px 5px 10px;
   
 }
 
@@ -27,7 +41,7 @@
     margin-top: 10px;
     margin-left: 25px;
     height: 240px;
-    width: 608px;
+    width: 615px;
     box-shadow: rgba(0,0,0,0.5) 0px 5px 15px;
     border-radius: 10px;
     background-color: #fff;
@@ -39,16 +53,18 @@
 
   select{
  margin-top: 7px;
-    padding: 7px 10px;
-    border-radius:5px;
-    background-color: rgb(65, 65, 209);
-    color: white;
-  }
-  .selectOption{
-    background-color: #fff;
-    color: black;
+    padding: 5px 50px;
+    border: none;
   }
   
   select:focus{
     outline:none;
+  }
+
+  .form {
+    width: 25%;
+  }
+  
+  .width {
+    width: 100%;
   }

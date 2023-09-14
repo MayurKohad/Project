@@ -78,6 +78,8 @@ import { MISComponent } from './mis/mis.component';
 import { MISDashboardComponent } from './misdashboard/misdashboard.component';
 import { MisModuleComponent } from './mis-module/mis-module.component';
 import { MisGraphComponent } from './mis-graph/mis-graph.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MisPipe } from './mis-graph/mis.pipe';
 
 
 @NgModule({
@@ -116,7 +118,8 @@ import { MisGraphComponent } from './mis-graph/mis-graph.component';
     MISComponent,
     MISDashboardComponent,
     MisModuleComponent,
-    MisGraphComponent
+    MisGraphComponent,
+    MisPipe
 
   ],
   imports: [
@@ -157,6 +160,7 @@ import { MisGraphComponent } from './mis-graph/mis-graph.component';
     MatPaginatorModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
+    MatAutocompleteModule,
     BackButtonDisableModule.forRoot({
       preserveScrollPosition: true
     })
