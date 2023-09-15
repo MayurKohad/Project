@@ -1,85 +1,34 @@
-<div style="background-color: aliceblue; height: fit-content; background-size: 100%;">
+<div style="background-color: aliceblue; height: fit-content; background-size: 100% 100%;">
     <div>
 
         <div class="redirectPage">
-            <!-- <div class="card mayur">
-                <mat-form-field appDateFormat>
-                    <mat-label style="color: black;">Date Selection</mat-label>
-                    <input matInput [matDatepicker]="dp2" [max]="today" (dateChange)="dateSelection( $event)" />
-                    <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
-                    <mat-datepicker #dp2 startView="month"></mat-datepicker>
-                </mat-form-field>
-            </div>
-            <div class="card mayur" >
-                <mat-form-field appDateFormat>
-                    <mat-label style="color: black;">Month Selection</mat-label>
-                    <input matInput [matDatepicker]="year"  (dateChange)="monthSelection( $event)" />
-                    <mat-datepicker-toggle matSuffix [for]="year"></mat-datepicker-toggle>
-                    <mat-datepicker #year startView="year"></mat-datepicker>
-                </mat-form-field>
-            </div>
-            
-            <div class="card">
-                <select name="language" id="language" (change)="handleChange($event.target.selectedIndex)" >
-                    <option  *ngFor="let item of textTypes" [value]="item.key">{{item.value}}</option>
-                  </select>
-            </div>
-
-            <div class="card">
-                <select name="language" id="language" (change)="passFailActivity($event.target.selectedIndex)">
-                    <option  *ngFor="let item of textType" [value]="item.key">{{item.value}}</option>
-                  </select>
-            </div> -->
-
-
-            <!-- dropdown-menu.component.html -->
-
-            <form class="form">
-                <mat-form-field class="width">
-                    <input matInput placeholder="Product Code" aria-label="Product Code" [matAutocomplete]="auto"
-                        [formControl]="countryCtrl" />
-                    <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngFor="let country of filteredCountry | async" [value]="country.name">
-                            <span>{{country.name}}</span>
+            <div>
+                <mat-form-field>
+                    <mat-select >
+                        <input [(ngModel)]="searchText" placeholder="search text goes here" >
+                        <mat-option *ngFor="let element of Data | mispipe:searchText" [value]="element" >
+                            {{element}}
                         </mat-option>
-                    </mat-autocomplete>
+    
+                    </mat-select>
                 </mat-form-field>
-            </form>
-
-
-
-
-            <!-- <form class="example-form">
-                <mat-form-field class="example-full-width">
-                    <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
-                        [matAutocomplete]="auto" [(ngModel)]="searchText">
-                    <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngFor="let option of options | mis:searchText" [value]="option">
-                            {{option}}
-                        </mat-option>
-                    </mat-autocomplete>
-                </mat-form-field>
-            </form> -->
-
-
-
-
-            <div style="margin-left: 45px;">
+            </div>
+            <div class="mar">
                 <button mat-raised-button color="primary" (click)="  redirectPage() " style="margin-top: 7px;">
                     Redirect to Module
                 </button>
             </div>
+
         </div>
 
         <div>
-            <div class="row" style="display: flex; width: 100%; margin-top: 5px; text-align: center; ">
+            <div class="row" style="display: flex; width: 100%; margin-top: 10px; text-align: center; ">
                 <div class="col">
-                    <h4 style="margin-top: 40px; display: flex;"> ModuleName : <span
-                            style="color: blue;">{{module}}</span></h4>
-                    <div style="text-align: center;">
+                    <h4> ModuleName : <span style="color: blue;">{{module}}</span></h4>
+                    <div>
                         <h5>Total :{{TOTAL}}</h5>
                         <h5>Pass :{{PASS}}</h5>
-                        <h5> Fail :{{FAIL}}</h5>
+                        <h5>Fail :{{FAIL}}</h5>
                     </div>
 
                 </div>

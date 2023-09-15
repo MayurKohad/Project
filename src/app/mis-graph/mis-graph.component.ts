@@ -1,16 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as Chart from 'chart.js';
 import { DataQualityMisService } from '../Service/data-quality-mis.service';
 import { HttpClient } from '@angular/common/http';
 import { MatDatepickerInputEvent } from '@angular/material';
 import { formatDate } from '@angular/common';
-
-import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
-
-
 
 
 @Component({
@@ -20,9 +14,14 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class MisGraphComponent implements OnInit {
 
-  myControl = new FormControl();
-  options: string[] = ['FAIL', 'PASS'];
-  
+  public variables = ['One','Two','County', 'Three', 'Zebra', 'XiOn'];
+  public variables2 = [{ id: 0, name: 'One' }, { id: 1, name: 'Two' }];
+
+  // public filteredList1 = this.variables.slice();
+  // public filteredList2 = this.variables.slice();
+  // public filteredList3 = this.variables.slice();
+  // public filteredList4 = this.variables.slice();
+  // public filteredList5 = this.variables2.slice();
 
   Weekly: boolean;
   Daily: boolean;
@@ -44,6 +43,8 @@ export class MisGraphComponent implements OnInit {
 
 
   constructor(private router: Router, private mis: DataQualityMisService, private http: HttpClient) {
+
+    
     localStorage.getItem('Day')
     console.log(localStorage.getItem('Day'));
     localStorage.getItem('week')
@@ -53,52 +54,32 @@ export class MisGraphComponent implements OnInit {
     this.report_name = localStorage.getItem('data');
     console.log(" this.report_name", this.report_name);
 
-
-    // dynamic dropdown
-    this.countryCtrl = new FormControl();
-    this.filteredCountry = this.countryCtrl.valueChanges.pipe(
-      startWith(''),
-      map((country) =>
-        country ? this.filtercountry(country) : this.country_lis.slice()
-      )
-    );
-// dynamic dropdown
   }
 
   chart: any = null;
   chartData: any = null;
+  Data:any;
 
-
+  searchText: string;
   ngOnInit(): void {
 
     // Fetch JSON data
     this.http.get('../../assets/graph.json').subscribe((data:any) => {
       console.log('data..', data);
-      console.log('...',data.mayur);
-      // this.filter=data.mayur;
-      // console.log(" this.filteredCountry", this.filteredCountry);
-      
 
       this.chartData = data;
+      this.Data=data.filteredList1;
+      console.log(this.Data);
+      
       this.drawStackedBarChart();
       this.drawPieChart();
       this.drawModuleWise();
       this.drawPerticularSubModule();
       this.selectModule();
-
     });
 
   }
 
-//   search(){
-//     this.http.get('../../assets/searchgraph.json').subscribe((search:any) => {
-// console.log("search",search);
-// console.log('mayur',search.mayur);
-
-
-//     })
-//   }
-  
 
   drawStackedBarChart() {
     const Data = this.chartData.Data;
@@ -137,8 +118,6 @@ export class MisGraphComponent implements OnInit {
             stacked: true,
           }],
         },
-        responsive: true, 
-        maintainAspectRatio: false, 
       },
 
     });
@@ -256,47 +235,33 @@ export class MisGraphComponent implements OnInit {
   }
 
   // for date selection
-  dateSelect:any;
-  monthSelect:any;
-  dateSelection(event: MatDatepickerInputEvent<Date>) {
-    this.dateSelect=`${event.value}`;
-    this.dateSelect = formatDate(this.dateSelect, "dd/MM/yyyy", "en");
-     console.log('dateSelect >>',this.dateSelect);
+  startDate:any;
+  addStartDate(event: MatDatepickerInputEvent<Date>) {
+    this.startDate=`${event.value}`;
+    this.startDate = formatDate(this.startDate, "dd/MM/yyyy", "en");
+     console.log('addStartDate >>',this.startDate);
   }
- 
-// for date selection
-    monthSelection(event: MatDatepickerInputEvent<Date>) {
-    this.monthSelect=`${event.value}`;
-    this.monthSelect = formatDate(this.monthSelect, "MM/yyyy", "en");
-     console.log('monthSelect >>',this.monthSelect);
-  }
-// for date selection
+// drop down for select module
   
-// drop down for select module
+
   textTypes :any;
-  textType :any;
-  selectedObject:any;
   selectModule(){
-    const moduleName = this.chartData.DropdownForSelectProduct;
-    const Data = this.chartData.Dropdown;
-    this.textTypes =  moduleName;
-    this.textType =  Data;
+    const moduleName = this.chartData.Sub_moduleName;
+    this.textTypes = 
+    [
+      {value : 'Select Module'},
+      { value : 'value1' },
+      { value : 'value2' },
+      { value : 'value3' },
+      { value : 'value4' },
+  
+    ]
   }
+  
   handleChange(index) {
-    this.selectedObject = this.textTypes[index];
-    console.log(this.selectedObject);
+    console.log(this.textTypes[index]);
+    // this.selectedObject = this.textTypes[index];
   }
-  passFailActivity(index){
-    let Obj = {
-      module : this.chartData.Module,
-      value : this.textType[index]
-    }
-    console.log(Obj);
-    this.mis.misdaily(Obj).subscribe(res => {
-    })
-    
-  }
-// drop down for select module
 
 
 
@@ -311,33 +276,8 @@ export class MisGraphComponent implements OnInit {
   }
 
   
-  length: number;
-
-  countryCtrl: FormControl;
-  filteredCountry: Observable<any[]>;
-  
-  country_lis: Country[] =
-  [
-    { "name": "Afghanistan" },
-    { "name": "Åland Islands" },
-    { "name": "Albania" },
-    { "name": "Algeria" }
-  ];
-arr:any;
-  filtercountry(name: string) {
-  this.arr = this.country_lis. filter(
-      (country) => country.name.toLowerCase().indexOf(name.toLowerCase()) === 0
-    );
-console.log(this.arr, "mayur")
-    return this.arr.length ? this.arr : [{ name: 'No Item found' }];
-  }
 
 
   
-  
-
 }
 
-export class Country {
-  constructor(public name: string) {}
-}
