@@ -21,5 +21,8 @@ export class ChooseDashboardComponent implements OnInit {
     this.router.navigate(['DefectTracker']);
 
   }
+  VALUATION(){
+    this.router.navigate(['main-valuation'])
+  }
 
 }
